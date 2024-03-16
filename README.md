@@ -1,4 +1,508 @@
 # FamousToday
+
+
+./delete-logs.sh REPOSITORY_NAME WORKFLOW_NAME
+#!/usr/bin/env bash
+
+# Delete all logs for a given workflow
+# Usage: delete-logs.sh <repository> <workflow-name>
+
+set -oe pipefail
+
+REPOSITORY=$1
+WORKFLOW_NAME=$2
+
+# Validate arguments
+if [[ -z "$REPOSITORY" ]]; then
+  echo "Repository is required"
+  exit 1
+fi
+
+if [[ -z "$WORKFLOW_NAME" ]]; then
+  echo "Workflow name is required"
+  exit 1
+fi
+
+echo "Getting all completed runs for workflow $WORKFLOW_NAME in $REPOSITORY"
+
+RUNS=$(
+  gh api \
+    -H "Accept: application/vnd.github+json" \
+    -H "X-GitHub-Api-Version: 2022-11-28" \
+    "/repos/$REPOSITORY/actions/workflows/$WORKFLOW_NAME/runs" \
+    --paginate \
+    --jq '.workflow_runs[] | select(.conclusion != "") | .id'
+)
+
+echo "Found $(echo "$RUNS" | wc -l) completed runs for workflow $WORKFLOW_NAME"
+
+# Delete logs for each run
+for RUN in $RUNS; do
+  echo "Deleting logs for run $RUN"
+  gh api \
+    --silent \
+    --method DELETE \
+    -H "Accept: application/vnd.github+json" \
+    -H "X-GitHub-Api-Version: 2022-11-28" \
+    "/repos/$REPOSITORY/actions/runs/$RUN/logs" || echo "Failed to delete logs for run $RUN"
+
+  # Sleep for 100ms to avoid rate limiting
+  sleep 0.1
+done
+gh run view RUN_ID --log
+You can also use the --job flag to specify a job ID. Replace job-id with the ID of the job that you want to view logs for.
+
+gh run view --job JOB_ID --log
+You can use grep to search the log. For example, this command will return all log entries that contain the word error.
+
+gh run view --job JOB_ID --log | grep error
+To filter the logs for any failed steps, use --log-failed instead of --log.
+
+gh run view --job JOB_ID --log-failed
+
+|-- hello-world (repository)
+|   └── dist
+|   └── tests
+|   └── src
+|       └── sass/app.scss
+|       └── app.ts
+|   └── output
+|       └── test
+|
+name: Node CI
+
+on: [push]
+
+jobs:
+  build_and_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: npm install, build, and test
+        run: |
+          npm install
+          npm run build --if-present
+          npm test
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist-without-markdown
+          path: |
+            dist
+            !dist/**/*.md
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v4
+        with:
+          name: code-coverage-report
+          path: output/test/code-coverage.html
+
+  - name: 'Upload Artifact'
+    uses: actions/upload-artifact@v4
+    with:
+      name: my-artifact
+      path: my_file.txt
+      retention-days: 5
+
+
+is artifact.
+
+- name: Download a single artifact
+  uses: actions/download-artifact@v4
+  with:
+    name: my-artifact
+You can also download all artifacts in a workflow run by not specifying a name. This can be useful if you are working with lots of artifacts.
+
+- name: Download all workflow run artifacts
+  uses: actions/download-artifact@v4
+If you download all workflow run's artifacts, a directory for each artifact is created using its name.
+
+For more information on syntax, see the actions/download-artifact action.
+
+Passing data between jobs in a workflow
+
+You can use the upload-artifact and download-artifact actions to share data between jobs in a workflow. This example workflow illustrates how to pass data between jobs in the same workflow. For more information, see the actions/upload-artifact and download-artifact actions.
+
+Jobs that are dependent on a previous job's artifacts must wait for the dependent job to complete successfully. This workflow uses the needs keyword to ensure that job_1, job_2, and job_3 run sequentially. For example, job_2 requires job_1 using the needs: job_1 syntax.
+
+Job 1 performs these steps:
+
+Performs a math calculation and saves the result to a text file called math-homework.txt.
+Uses the upload-artifact action to upload the math-homework.txt file with the artifact name homework_pre.
+Job 2 uses the result in the previous job:
+
+Downloads the homework_pre artifact uploaded in the previous job. By default, the download-artifact action downloads artifacts to the workspace directory that the step is executing in. You can use the path input parameter to specify a different download directory.
+Reads the value in the math-homework.txt file, performs a math calculation, and saves the result to math-homework.txt again, overwriting its contents.
+Uploads the math-homework.txt file. As artifacts are considered immutable in v4, the artifact is passed a different input, homework_final, as a name.
+Job 3 displays the result uploaded in the previous job:
+
+Downloads the homework_final artifact from Job 2.
+Prints the result of the math equation to the log.
+The full math operation performed in this workflow example is (3 + 7) x 9 = 90.
+
+YAML
+name: Share data between jobs
+
+on: [push]
+
+jobs:
+  job_1:
+    name: Add 3 and 7
+    runs-on: ubuntu-latest
+    steps:
+      - shell: bash
+        run: |
+          expr 3 + 7 > math-homework.txt
+      - name: Upload math result for job 1
+        uses: actions/upload-artifact@v4
+        with:
+          name: homework_pre
+          path: math-homework.txt
+
+  job_2:
+    name: Multiply by 9
+    needs: job_1
+    runs-on: windows-latest
+    steps:
+      - name: Download math result for job 1
+        uses: actions/download-artifact@v4
+        with:
+          name: homework_pre
+      - shell: bash
+        run: |
+          value=`cat math-homework.txt`
+          expr $value \* 9 > math-homework.txt
+      - name: Upload math result for job 2
+        uses: actions/upload-artifact@v4
+        with:
+          name: homework_final
+          path: math-homework.txt
+
+  job_3:
+    name: Display results
+    needs: job_2
+    runs-on: macOS-latest
+    steps:
+      - name: Download math result for job 2
+        uses: actions/download-artifact@v4
+        with:
+          name: homework_final
+      - name: Print the final result
+        shell: bash
+        run: |
+          value=`cat math-homework.txt`
+          echo The result is $value
+The
+
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <YOUR-TOKEN>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/repos/OWNER/REPO/actions/artifacts
+
+{
+  "total_count": 2,
+  "artifacts": [
+    {
+      "id": 11,
+      "node_id": "MDg6QXJ0aWZhY3QxMQ==",
+      "name": "Rails",
+      "size_in_bytes": 556,
+      "url": "https://api.github.com/repos/octo-org/octo-docs/actions/artifacts/11",
+      "archive_download_url": "https://api.github.com/repos/octo-org/octo-docs/actions/artifacts/11/zip",
+      "expired": false,
+      "created_at": "2020-01-10T14:59:22Z",
+      "expires_at": "2020-03-21T14:59:22Z",
+      "updated_at": "2020-02-21T14:59:22Z",
+      "workflow_run": {
+        "id": 2332938,
+        "repository_id": 1296269,
+        "head_repository_id": 1296269,
+        "head_branch": "main",
+        "head_sha": "328faa0536e6fef19753d9d91dc96a9931694ce3"
+      }
+    },
+    {
+      "id": 13,
+      "node_id": "MDg6QXJ0aWZhY3QxMw==",
+      "name": "Test output",
+      "size_in_bytes": 453,
+      "url": "https://api.github.com/repos/octo-org/octo-docs/actions/artifacts/13",
+      "archive_download_url": "https://api.github.com/repos/octo-org/octo-docs/actions/artifacts/13/zip",
+      "expired": false,
+      "created_at": "2020-01-10T14:59:22Z",
+      "expires_at": "2020-03-21T14:59:22Z",
+      "updated_at": "2020-02-21T14:59:22Z",
+      "workflow_run": {
+        "id": 2332942,
+        "repository_id": 1296269,
+        "head_repository_id": 1296269,
+        "head_branch": "main",
+        "head_sha": "178f4f6090b3fccad4a65b3e83d076a622d59652"
+      }
+    }
+  ]
+}
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <YOUR-TOKEN>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/repos/OWNER/REPO/actions/artifacts/ARTIFACT_ID
+
+Status: 200
+{
+  "id": 11,
+  "node_id": "MDg6QXJ0aWZhY3QxMQ==",
+  "name": "Rails",
+  "size_in_bytes": 556,
+  "url": "https://api.github.com/repos/octo-org/octo-docs/actions/artifacts/11",
+  "archive_download_url": "https://api.github.com/repos/octo-org/octo-docs/actions/artifacts/11/zip",
+  "expired": false,
+  "created_at": "2020-01-10T14:59:22Z",
+  "expires_at": "2020-01-21T14:59:22Z",
+  "updated_at": "2020-01-21T14:59:22Z",
+  "workflow_run": {
+    "id": 2332938,
+    "repository_id": 1296269,
+    "head_repository_id": 1296269,
+    "head_branch": "main",
+    "head_sha": "328faa0536e6fef19753d9d91dc96a9931694ce3"
+  }
+}
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <YOUR-TOKEN>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/repos/OWNER/REPO/actions/artifacts/ARTIFACT_ID/ARCHIVE_FORMAT
+
+curl -L \
+  -H "Accept: application/vnd.github+json" \
+  -H "Authorization: Bearer <YOUR-TOKEN>" \
+  -H "X-GitHub-Api-Version: 2022-11-28" \
+  https://api.github.com/repos/OWNER/REPO/actions/runs/RUN_ID/artifacts
+
+{
+  "total_count": 2,
+  "artifacts": [
+    {
+      "id": 11,
+      "node_id": "MDg6QXJ0aWZhY3QxMQ==",
+      "name": "Rails",
+      "size_in_bytes": 556,
+      "url": "https://api.github.com/repos/octo-org/octo-docs/actions/artifacts/11",
+      "archive_download_url": "https://api.github.com/repos/octo-org/octo-docs/actions/artifacts/11/zip",
+      "expired": false,
+      "created_at": "2020-01-10T14:59:22Z",
+      "expires_at": "2020-03-21T14:59:22Z",
+      "updated_at": "2020-02-21T14:59:22Z",
+      "workflow_run": {
+        "id": 2332938,
+        "repository_id": 1296269,
+        "head_repository_id": 1296269,
+        "head_branch": "main",
+        "head_sha": "328faa0536e6fef19753d9d91dc96a9931694ce3"
+      }
+    },
+    {
+      "id": 13,
+      "node_id": "MDg6QXJ0aWZhY3QxMw==",
+      "name": "Test output",
+      "size_in_bytes": 453,
+      "url": "https://api.github.com/repos/octo-org/octo-docs/actions/artifacts/13",
+      "archive_download_url": "https://api.github.com/repos/octo-org/octo-docs/actions/artifacts/13/zip",
+      "expired": false,
+      "created_at": "2020-01-10T14:59:22Z",
+      "expires_at": "2020-03-21T14:59:22Z",
+      "updated_at": "2020-02-21T14:59:22Z",
+      "workflow_run": {
+        "id": 2332942,
+        "repository_id": 1296269,
+        "head_repository_id": 1296269,
+        "head_branch": "main",
+        "head_sha": "178f4f6090b3fccad4a65b3e83d076a622d59652"
+      }
+    }
+  ]
+}
+
+
+
+if: ${{ ! startsWith(github.ref, 'refs/tags/') }}
+For more information, see "Expressions."
+
+Example: Using contexts
+
+This step only runs when the event type is a pull_request and the event action is unassigned.
+
+steps:
+  - name: My first step
+    if: ${{ github.event_name == 'pull_request' && github.event.action == 'unassigned' }}
+    run: echo This event is a pull request that had an assignee removed.
+Example: Using status check functions
+
+The my backup step only runs when the previous step of a job fails. For more information, see "Expressions."
+
+steps:
+  - name: My first step
+    uses: octo-org/action-name@main
+  - name: My backup step
+    if: ${{ failure() }}
+    uses: actions/heroku@1.0.0
+Example: Using secrets
+
+Secrets cannot be directly referenced in if: conditionals. Instead, consider setting secrets as job-level environment variables, then referencing the environment variables to conditionally run steps in the job.
+
+If a secret has not been set, the return value of an expression referencing the secret (such as ${{ secrets.SuperSecret }} in the example) will be an empty string.
+
+name: Run a step if a secret has been set
+on: push
+jobs:
+  my-jobname:
+    runs-on: ubuntu-latest
+    env:
+      super_secret: ${{ secrets.SuperSecret }}
+    steps:
+      - if: ${{ env.super_secret != '' }}
+        run: echo 'This step will only run if the secret has a value set.'
+      - if: ${{ env.super_secret == '' }}
+        run: echo 'This step will only run if the secret does not have a value set.'
+For more information, see "Contexts" and "Using secrets in GitHub Actions."
+
+jobs.<job_id>.steps[*].name
+
+A name for your step to display on GitHub.
+
+jobs.<job_id>.steps[*].uses
+
+Selects an action to run as part of a step in your job. An action is a reusable unit of code. You can use an action defined in the same repository as the workflow, a public repository, or in a published Docker container image.
+
+We strongly recommend that you include the version of the action you are using by specifying a Git ref, SHA, or Docker tag. If you don't specify a version, it could break your workflows or cause unexpected behavior when the action owner publishes an update.
+
+Using the commit SHA of a released action version is the safest for stability and security.
+If the action publishes major version tags, you should expect to receive critical fixes and security patches while still retaining compatibility. Note that this behavior is at the discretion of the action's author.
+Using the default branch of an action may be convenient, but if someone releases a new major version with a breaking change, your workflow could break.
+Some actions require inputs that you must set using the with keyword. Review the action's README file to determine the inputs required.
+
+Actions are either JavaScript files or Docker containers. If the action you're using is a Docker container you must run the job in a Linux environment. For more details, see runs-on.
+
+Example: Using versioned actions
+
+steps:
+  # Reference a specific commit
+  - uses: actions/checkout@8f4b7f84864484a7bf31766abe9204da3cbe65b3
+  # Reference the major version of a release
+  - uses: actions/checkout@v4
+  # Reference a specific version
+  - uses: actions/checkout@v4.2.0
+  # Reference a branch
+  - uses: actions/checkout@main
+Example: Using a public action
+
+{owner}/{repo}@{ref}
+
+You can specify a branch, ref, or SHA in a public GitHub repository.
+
+jobs:
+  my_first_job:
+    steps:
+      - name: My first step
+        # Uses the default branch of a public repository
+        uses: actions/heroku@main
+      - name: My second step
+        # Uses a specific version tag of a public repository
+        uses: actions/aws@v2.0.1
+Example: Using a public action in a subdirectory
+
+{owner}/{repo}/{path}@{ref}
+
+A subdirectory in a public GitHub repository at a specific branch, ref, or SHA.
+
+jobs:
+  my_first_job:
+    steps:
+      - name: My first step
+        uses: actions/aws/ec2@main
+Example: Using an action in the same repository as the workflow
+
+./path/to/dir
+
+The path to the directory that contains the action in your workflow's repository. You must check out your repository before using the action.
+
+Example repository file structure:
+
+|-- hello-world (repository)
+|   |__ .github
+|       └── workflows
+|           └── my-first-workflow.yml
+|       └── actions
+|           |__ hello-world-action
+|               └── action.yml
+The path is relative (./) to the default working directory (github.workspace, $GITHUB_WORKSPACE). If the action checks out the repository to a location different than the workflow, the relative path used for local actions must be updated.
+
+Example workflow file:
+
+jobs:
+  my_first_job:
+    runs-on: ubuntu-latest
+    steps:
+      # This step checks out a copy of your repository.
+      - name: My first step - check out repository
+        uses: actions/checkout@v4
+      # This step references the directory that contains the action.
+      - name: Use local hello-world-action
+        uses: ./.github/actions/hello-world-action
+Example: Using a Docker Hub action
+
+docker://{image}:{tag}
+
+A Docker image published on Docker Hub.
+
+jobs:
+  my_first_job:
+    steps:
+      - name: My first step
+        uses: docker://alpine:3.8
+Example: Using the GitHub Packages Container registry
+
+docker://{host}/{image}:{tag}
+
+A public Docker image in the GitHub Packages Container registry.
+
+jobs:
+  my_first_job:
+    steps:
+      - name: My first step
+        uses: docker://ghcr.io/OWNER/IMAGE_NAME
+Example: Using a Docker public registry action
+
+docker://{host}/{image}:{tag}
+
+A Docker image in a public registry. This example uses the Google Container Registry at gcr.io.
+
+jobs:
+  my_first_job:
+    steps:
+      - name: My first step
+        uses: docker://gcr.io/cloud-builders/gradle
+Example: Using an action inside a different private repository than the workflow
+
+Your workflow must checkout the private repository and reference the action locally. Generate a personal access token and add the token as a secret. For more information, see "Managing your personal access tokens" and "Using secrets in GitHub Actions."
+
+Replace PERSONAL_ACCESS_TOKEN in the example with the name of your secret.
+
+jobs:
+  my_first_job:
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          repository: octocat/my-private-repo
+          ref: v1.0
+          token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          path: ./.github/actions/my-private-repo
+      - name: Run my action
+        uses: ./.github/actions/my-private-repo/my-action
+
 Example of multiline Markdown content
 
 - name: Generate list using Markdown
