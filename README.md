@@ -1,5 +1,551 @@
 # FamousToday
   $ RoadRunner ReadMe
+    IdentityFile=/home/user/.ssh/repo-0_deploy_key
+ "id": "f7e866c9-768c-4442-adc9-abe2ba4b69d1",
+ "id": "ff94b6dc-d360-4245-9918-0d0cf7ac347a",
+
++Account id degi cert 90171939-7ae7-4884-85d4-9a5ccc670fa6
++Account id organizations
++979310f6-db24-4c67-bcb9-6926d92cd6ec
++
++User id
++fa5e727c-0527-44e0-9004-5fdc347b0b3f
++
+   "id": "7d78b46a-c635-4bda-8b6d-13802046a963",
+
+   "id": "fa8285c7-5e35-4ea8-8cc4-dc95f7dc3cd6",
+
+   "id": "833e4906-fc45-4bd3-841e-40506c0e8ca8",
+Account id degi cert : 
+90171939-7ae7-4884-85d4-9a5ccc670fa6
+
+Account id organizations :
+979310f6-db24-4c67-bcb9-6926d92cd6ec
+
+User id :
+fa5e727c-0527-44e0-9004-5fdc347b0b3f
+Organization ID :
+
+e3ff35d1-cea4-4508-acb5-99d9cbd91e80
+
+Organization ID. The id for each organization is returned in the List organizations endpoint (GET /account/api/v1/organization).
+
+
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'GET' \
+  'https://one.digicert.com/account/api/v1/organization/e3ff35d1-cea4-4508-acb5-99d9cbd91e80' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: 10000'
+Request URL
+https://one.digicert.com/account/api/v1/organization/e3ff35d1-cea4-4508-acb5-99d9cbd91e80
+Server response
+Code	Details
+403
+Undocumented
+Error: Forbidden
+
+Response body
+Download
+{
+  "errors": [
+    {
+      "code": "AUTHORIZATION_ERROR",
+      "message": "No authentication data provided"
+    }
+  ]
+}
+Response headers
+ cache-control: no-cache,no-store,max-age=0,must-revalidate 
+ connection: keep-alive 
+ content-encoding: gzip 
+ content-security-policy: default-src 'self' dctrustassistant: http://localhost:*/ http://127.0.0.1:*/ https://127.0.0.1:*/ https://assets.adobedtm.com/ https://*.pendo.io/  https://www.googletagmanager.com/  https://www.google-analytics.com/ https://purecatamphetamine.github.io https://*.fullstory.com/ https://*.digicert.com/ https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.js https://*.storage.googleapis.com/ https://services.nvd.nist.gov blob: data: 'unsafe-inline' 'unsafe-eval'; 
+ content-type: application/json 
+ date: Sat,16 Mar 2024 05:01:28 GMT 
+ expires: 0 
+ pragma: no-cache 
+ referrer-policy: no-referrer 
+ strict-transport-security: max-age=15724800 
+ transfer-encoding: Identity 
+ vary: Accept-Encoding 
+ x-cdn: Imperva 
+ x-content-type-options: nosniff 
+ x-envoy-decorator-operation: account.dcone-prod.svc.cluster.local:8080/* 
+ x-envoy-upstream-service-time: 6 
+ x-frame-options: same-origin 
+ x-iinfo: 15-83102079-83102082 NNNY CT(36 39 0) RT(1710565287584 42) q(0 0 0 -1) r(0 0) U11 
+ x-xss-protection: 1; mode=block 
+Responses
+Code	Description	Links
+200	
+Organization details.
+
+Media type
+
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": "70a9fe0e-4ae8-4a5a-940a-c2526970885f",
+  "name": "DigiCert Inc.",
+  "address": "2801 N Thanksgiving Way",
+  "address2": "Suite 500",
+  "zip_code": 84043,
+  "city": "Lehi",
+  "state": "Utah",
+  "country": "US",
+  "phone": "+1 (123) 456-7890",
+  "account": {
+    "id": "ff89491b-4477-431d-95d6-780f535df61e",
+    "name": "Example Account"
+  },
+  "active": true
+}
+
+curl -X 'GET' \
+  'https://one.digicert.com/account/api/v1/organization?account_id=979310f6-db24-4c67-bcb9-6926d92cd6ec' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: 10000'
+Request URL
+https://one.digicert.com/account/api/v1/organization?account_id=979310f6-db24-4c67-bcb9-6926d92cd6ec
+Server response
+Code Details
+403
+Undocumented
+Error: Forbidden
+
+Response body
+Download
+{
+  "errors": [
+    {
+      "code": "AUTHORIZATION_ERROR",
+      "message": "No authentication data provided"
+    }
+  ]
+}
+Response headers
+ cache-control: no-cache,no-store,max-age=0,must-revalidate 
+ connection: keep-alive 
+ content-encoding: gzip 
+ content-security-policy: default-src 'self' dctrustassistant: http://localhost:*/ http://127.0.0.1:*/ https://127.0.0.1:*/ https://assets.adobedtm.com/ https://*.pendo.io/  https://www.googletagmanager.com/  https://www.google-analytics.com/ https://purecatamphetamine.github.io https://*.fullstory.com/ https://*.digicert.com/ https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.js https://*.storage.googleapis.com/ https://services.nvd.nist.gov blob: data: 'unsafe-inline' 'unsafe-eval'; 
+ content-type: application/json 
+ date: Sat,16 Mar 2024 04:52:19 GMT 
+ expires: 0 
+ pragma: no-cache 
+ referrer-policy: no-referrer 
+ strict-transport-security: max-age=15724800 
+ transfer-encoding: Identity 
+ vary: Accept-Encoding 
+ x-cdn: Imperva 
+ x-content-type-options: nosniff 
+ x-envoy-decorator-operation: account.dcone-prod.svc.cluster.local:8080/* 
+ x-envoy-upstream-service-time: 10 
+ x-frame-options: same-origin 
+ x-iinfo: 15-83073046-83073052 NNNN CT(36 39 0) RT(1710564738237 37) q(0 0 1 -1) r(2 2) U11 
+ x-xss-protection: 1; mode=block 
+Responses
+Code Description Links
+200 
+Organization list
+
+Media type
+
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "id": "d9674d8f-7ad6-4280-89b5-136c2aded288",
+    "name": "DigiCert Inc.",
+    "address": "2801 N Thanksgiving Way",
+    "address2": "Suite 500",
+    "zip_code": 84043,
+    "city": "Lehi",
+    "state": "Utah",
+    "country": "US",
+    "phone": "+1 (123) 456-7890",
+    "account": {
+      "id": "ff94b6dc-d360-4245-9918-0d0cf7ac347a",
+      "name": "Example Account"
+    },
+    "active": true
+  }
+]
+
+curl -X 'GET' \
+  'https://one.digicert.com/account/api/v1/account/90171939-7ae7-4884-85d4-9a5ccc670fa6' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: 1000'
+Request URL
+https://one.digicert.com/account/api/v1/account/90171939-7ae7-4884-85d4-9a5ccc670fa6
+
+{
+  "id": "ad65390a-0380-4522-bab6-f007c447757a",
+  "name": "Example account 1",
+  "active": true,
+  "service_period": {
+    "from": "2021-05-26",
+    "to": "2022-05-26"
+  },
+  "friendly_identifier": "7092363",
+  "admins": [
+    {
+      "id": "f7e866c9-768c-4442-adc9-abe2ba4b69d1",
+      "name": "Jane Doe",
+      "email": "jane.doe@example.com"
+    }
+  ],
+  "sign_in_methods": [
+    {
+      "signInMethod": "standard",
+      "status": "enabled",
+      "mfaStatus": "disabled",
+      "clientAuthCertLoginEnabled": false
+    }
+  ],
+  "oauth_clients": [],
+  "locale": "en_US"
+}
+No links
+
+GET
+
+curl -X 'GET' \
+  'https://one.digicert.com/account/api/v1/account/90171939-7ae7-4884-85d4-9a5ccc670fa6' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: 10000'
+Request URL
+https://one.digicert.com/account/api/v1/account/90171939-7ae7-4884-85d4-9a5ccc670fa6
+Server response
+Code Details
+403
+Undocumented
+Error: Forbidden
+
+Response body
+Download
+{
+  "errors": [
+    {
+      "code": "AUTHORIZATION_ERROR",
+      "message": "No authentication data provided"
+    }
+  ]
+}
+Response headers
+ cache-control: no-cache,no-store,max-age=0,must-revalidate 
+ connection: keep-alive 
+ content-encoding: gzip 
+ content-security-policy: default-src 'self' dctrustassistant: http://localhost:*/ http://127.0.0.1:*/ https://127.0.0.1:*/ https://assets.adobedtm.com/ https://*.pendo.io/  https://www.googletagmanager.com/  https://www.google-analytics.com/ https://purecatamphetamine.github.io https://*.fullstory.com/ https://*.digicert.com/ https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.js https://*.storage.googleapis.com/ https://services.nvd.nist.gov blob: data: 'unsafe-inline' 'unsafe-eval'; 
+ content-type: application/json 
+ date: Sat,16 Mar 2024 04:40:43 GMT 
+ expires: 0 
+ pragma: no-cache 
+ referrer-policy: no-referrer 
+ strict-transport-security: max-age=15724800 
+ transfer-encoding: Identity 
+ vary: Accept-Encoding 
+ x-cdn: Imperva 
+ x-content-type-options: nosniff 
+ x-envoy-decorator-operation: account.dcone-prod.svc.cluster.local:8080/* 
+ x-envoy-upstream-service-time: 6 
+ x-frame-options: same-origin 
+ x-iinfo: 12-53698010-53698015 NNNY CT(35 38 0) RT(1710564042696 63) q(0 0 0 -1) r(1 1) U11 
+ x-xss-protection: 1; mode=block
+
+curl -X 'GET' \
+  'https://one.digicert.com/account/api/v1/account?active=all&name=6309304695' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: 10000'
+Request URL
+https://one.digicert.com/account/api/v1/account?active=all&name=6309304695
+Server response
+Code Details
+403
+Undocumented
+Error: Forbidden
+
+Response body
+Download
+{
+  "errors": [
+    {
+      "code": "AUTHORIZATION_ERROR",
+      "message": "No authentication data provided"
+    }
+  ]
+}
+Response headers
+ cache-control: no-cache,no-store,max-age=0,must-revalidate 
+ connection: keep-alive 
+ content-encoding: gzip 
+ content-security-policy: default-src 'self' dctrustassistant: http://localhost:*/ http://127.0.0.1:*/ https://127.0.0.1:*/ https://assets.adobedtm.com/ https://*.pendo.io/  https://www.googletagmanager.com/  https://www.google-analytics.com/ https://purecatamphetamine.github.io https://*.fullstory.com/ https://*.digicert.com/ https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.js https://*.storage.googleapis.com/ https://services.nvd.nist.gov blob: data: 'unsafe-inline' 'unsafe-eval'; 
+ content-type: application/json 
+ date: Sat,16 Mar 2024 04:42:23 GMT 
+ expires: 0 
+ pragma: no-cache 
+ referrer-policy: no-referrer 
+ strict-transport-security: max-age=15724800 
+ transfer-encoding: Identity 
+ vary: Accept-Encoding 
+ x-cdn: Imperva 
+ x-content-type-options: nosniff 
+ x-envoy-decorator-operation: account.dcone-prod.svc.cluster.local:8080/* 
+ x-envoy-upstream-service-time: 6 
+ x-frame-options: same-origin 
+ x-iinfo: 7-14411267-14411269 NNNY CT(36 40 0) RT(1710564142411 41) q(0 0 0 -1) r(1 1) U11 
+ x-xss-protection: 1; mode=block 
+Responses
+Code Description Links
+200 
+List of accounts
+
+Media type
+
+Controls Accept header.
+Examples
+
+Example Value
+Schema
+[
+  {
+    "id": "50580ac7-60e4-4df2-a834-d12c1ab79afb",
+    "name": "Example account 1",
+    "active": true,
+    "service_period": {
+      "from": "2021-05-25",
+      "to": "2022-05-25"
+    },
+    "friendly_identifier": "5258283",
+    "admins": [
+      {
+        "id": "833e4906-fc45-4bd3-841e-40506c0e8ca8",
+        "email": "api_service_user_1@example.com"
+      },
+      {
+        "id": "fa8285c7-5e35-4ea8-8cc4-dc95f7dc3cd6",
+        "email": "api_service_user_2@example.com"
+      },
+      {
+        "id": "7d78b46a-c635-4bda-8b6d-13802046a963",
+        "name": "John Doe",
+        "email": "account_user_1@example.com"
+      }
+    ],
+    "sign_in_methods": [
+      {
+        "signInMethod": "standard",
+        "status": "enabled",
+        "mfaStatus": "disabled",
+        "clientAuthCertLoginEnabled": false
+      }
+    ],
+    "locale": "en_US"
+  },
+  {
+    "id": "be5ffbd2-1a50-4675-912f-2fe015812f87",
+    "name": "Example account 2",
+    "active": true,
+    "service_period": {
+      "from": "2021-05-26",
+      "to": "2022-05-26"
+    },
+    "friendly_identifier": "7092363",
+    "admins": [],
+    "sign_in_methods": [
+      {
+        "signInMethod": "standard",
+        "status": "enabled",
+        "mfaStatus": "disabled",
+        "clientAuthCertLoginEnabled": false
+      }
+    ],
+    "locale": "en_US"
+  }
+]
+
+Curl
+
+curl -X 'GET' \
+  'https://one.digicert.com/account/api/v1/api-access-token?user_id=fa5e727c-0527-44e0-9004-5fdc347b0b3f' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: 10000'
+Request URL
+https://one.digicert.com/account/api/v1/api-access-token?user_id=fa5e727c-0527-44e0-9004-5fdc347b0b3f
+Server response
+Code Details
+403
+Undocumented
+Error: Forbidden
+
+Response body
+Download
+{
+  "errors": [
+    {
+      "code": "AUTHORIZATION_ERROR",
+      "message": "No authentication data provided"
+    }
+  ]
+}
+Response headers
+ cache-control: no-cache,no-store,max-age=0,must-revalidate 
+ connection: keep-alive 
+ content-encoding: gzip 
+ content-security-policy: default-src 'self' dctrustassistant: http://localhost:*/ http://127.0.0.1:*/ https://127.0.0.1:*/ https://assets.adobedtm.com/ https://*.pendo.io/  https://www.googletagmanager.com/  https://www.google-analytics.com/ https://purecatamphetamine.github.io https://*.fullstory.com/ https://*.digicert.com/ https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.js https://*.storage.googleapis.com/ https://services.nvd.nist.gov blob: data: 'unsafe-inline' 'unsafe-eval'; 
+ content-type: application/json 
+ date: Sat,16 Mar 2024 04:44:01 GMT 
+ expires: 0 
+ pragma: no-cache 
+ referrer-policy: no-referrer 
+ strict-transport-security: max-age=15724800 
+ transfer-encoding: Identity 
+ vary: Accept-Encoding 
+ x-cdn: Imperva 
+ x-content-type-options: nosniff 
+ x-envoy-decorator-operation: account.dcone-prod.svc.cluster.local:8080/* 
+ x-envoy-upstream-service-time: 5 
+ x-frame-options: same-origin 
+ x-iinfo: 15-83048556-83048560 NNNY CT(36 38 0) RT(1710564241016 44) q(0 0 0 -1) r(1 1) U11 
+ x-xss-protection: 1; mode=block 
+Responses
+Code Description Links
+200 
+Success
+
+Media type
+
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "id": "7b5d83e7-6e5f-4ade-ad48-111c6f3420f7",
+    "user_id": "e7ea1214-d688-48ba-aa1b-131fb2867ac5",
+    "name": "API token name",
+    "end_date": "2022-05-30T23:59:59Z",
+    "start_date": "2021-06-25T21:20:06Z",
+    "active": true,
+    "enabled": true,
+    "masked_api_key": "*************9e2a1"
+  }
+]
+
+Curl
+
+curl -X 'GET' \
+  'https://one.digicert.com/account/api/v1/locales' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: 10000'
+Request URL
+https://one.digicert.com/account/api/v1/locales
+Server response
+Code Details
+200 
+Response body
+Download
+[
+  {
+    "code": "de_DE",
+    "language": "Deutsch"
+  },
+  {
+    "code": "en_US",
+    "language": "English"
+  },
+  {
+    "code": "es_ES",
+    "language": "Español"
+  },
+  {
+    "code": "fr_FR",
+    "language": "Français"
+  },
+  {
+    "code": "it_IT",
+    "language": "Italiano"
+  },
+  {
+    "code": "ja_JP",
+    "language": "日本語"
+  },
+  {
+    "code": "ko_KR",
+    "language": "한국어"
+  },
+  {
+    "code": "nl_NL",
+    "language": "Nederlands"
+  },
+  {
+    "code": "pt_BR",
+    "language": "Português"
+  },
+  {
+    "code": "ru_RU",
+    "language": "Русский"
+  },
+  {
+    "code": "zh_CN",
+    "language": "简体中文"
+  },
+  {
+    "code": "zh_TW",
+    "language": "繁體中文"
+  }
+]
+Response headers
+ cache-control: no-cache,no-store,max-age=0,must-revalidate 
+ connection: keep-alive 
+ content-encoding: gzip 
+ content-security-policy: default-src 'self' dctrustassistant: http://localhost:*/ http://127.0.0.1:*/ https://127.0.0.1:*/ https://assets.adobedtm.com/ https://*.pendo.io/  https://www.googletagmanager.com/  https://www.google-analytics.com/ https://purecatamphetamine.github.io https://*.fullstory.com/ https://*.digicert.com/ https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.js https://*.storage.googleapis.com/ https://services.nvd.nist.gov blob: data: 'unsafe-inline' 'unsafe-eval'; 
+ content-type: application/json 
+ date: Sat,16 Mar 2024 04:50:15 GMT 
+ expires: 0 
+ pragma: no-cache 
+ referrer-policy: no-referrer 
+ strict-transport-security: max-age=15724800 
+ transfer-encoding: Identity 
+ vary: Accept-Encoding 
+ x-cdn: Imperva 
+ x-content-type-options: nosniff 
+ x-envoy-decorator-operation: account.dcone-prod.svc.cluster.local:8080/* 
+ x-envoy-upstream-service-time: 7 
+ x-frame-options: same-origin 
+ x-iinfo: 18-118172517-118172518 NNNN CT(35 39 0) RT(1710564614160 42) q(0 0 0 -1) r(1 1) U2 
+ x-xss-protection: 1; mode=block 
+Responses
+Code Description Links
+200 
+Locales list
+
+Media type
+
+Controls Accept header.
+Examples
+
+Example Value
+Schema
+[
+  {
+    "code": "de_DE",
+    "language": "Deutsch"
+  },
+  {
+    "code": "en_US",
+    "language": "English"
+  },
+  {
+    "code": "es_ES",
+    "language": "Español"
+  },
+  {
+    "code": "fr_FR",
+    "language": "Français"
 Host github.com-repo-0
         Hostname github.com
         IdentityFile=/home/user/.ssh/repo-0_deploy_key
@@ -18628,180 +19174,3 @@ index 7278f80..41b298d 100644
 +   S: INQUIRE KEYPARM
 +   C: D (genkey (rsa (nbits  1024)))
 +   C: END
-+   S: D (public-key
-+   S: D   (rsa (n 326487324683264) (e 10001)))
-+   S  OK key created
-+    ISTRUSTED <5e:8d:c4:ad:e7:af:6e:27:8a:d6:13:e4:79:ad:0b:81>
-+LISTTRUSTED
-+GpgAgent returns a list of trusted keys line by line:
-+
-+    S: D 000000001234454556565656677878AF2F1ECCFF P
-+    S: D 340387563485634856435645634856438576457A P
-+    S: D FEDC6532453745367FD83474357495743757435D S
-+    S: OK
-+The first item on a line is the hexified fingerprint where MD5 fingerprints are 00 padded to the left and the second item is a flag to indicate the type of key (so that gpg is able to only take care of PGP keys). P = OpenPGP, S = S/MIME. A client should ignore the rest of the line, so that we can extend the format in the future.
-+Ok
-+Finally a client should be able to mark a key as trusted:
-+
-+   MARKTRUSTED fingerprint "P"|"S"
-+The server will then pop up a window to ask the user whether she really trusts this key. For this it will probably ask for a text to be displayed like this:
-+
-+   S: INQUIRE TRUSTDESC
-+   C: D Do you trust the key with the fingerprint @FPR@
-+   C: D bla fasel blurb.
-+   C: END
-+   S: OK
-+GET_PASSPHRASE [--data] [--check] [--no-ask] [--repeat[=N]] \
-+                 [--qualitybar] cache_id                \
-+                 [error_message prompt description]
-+PRESET_PASSPHRASE [--inquire] <string_or_keygrip> <timeout> [<hexstring>]
-+
-+HAVEKEY keygrips
-+  GET_CONFIRMATION description
-+  LEARN [--send]
-+UPDATESTARTUPTTY
-+SETDATA hexstring
-+
-+
-+  PKSIGN keyid
-+
-+
-+  PKSIGN --hash=algoname keyid
-+
-+READCERT hexified_certid|keyid
-+READKEY hexified_certid
-+SETDATA hexstring
-+d
-+
-+  PKSIGN keyid
-+ LEARN
-+
-+  PKSIGN --hash=algoname keyid
-+
-+WRITEKEY [--force] keyid
-+WRITEKEY [--force] keyid
-+PASSWD [--reset] [--nullpin] chvno
-+CHECKPIN idstr
-+APDU [--atr] [--more] [--exlen[=n]] [hexstring]
-+this:
-+
-+     S CARD-ATR 3BFA1300FF813180450031C173C00100009000B1
-+--auto-key-import 
-+
-+command --locate-external-key
-+command --locate-external-key
-+github/workflows/release.yml:
-+ldap://keys.(thedomain)
-+‘--auto-key-locate
-+ --auto-key-locate
-+--auto-key-retrieve
-+
-+
-+ honor-keyserver-url 
-+
-+-sig-keyserver-url
-+--recv-key
-+honor-keyserver-url
-+--use-agent
-+--gpg-agent-info
-+
-+
-+--no-random-seed-file
-+Host: c7-use-3.algolianet. com
-+Accept: */*
-+Sec-Fetch-Site: cross-site
-+Accept-Language: en-US, en; q=0.9
-+Accept-Encoding: gzip, deflate, br
-+Sec-Fetch-Mode: cors x-algolia-application-id: A7KCVJZ91B
-+Origin: https://dashboard.algolia.com
-+User-Agent: Mozilla/5.0 (iPhone; CPU iPhone 0S 17_3 like Mac 0S X) AppleWe
-+x-algolia-api-key: b3cf*************************米**
-+Content-Length: 27
-+Connection: keep-alive
-+Content-Type: application/x-www-form-urlencoded
-+Sec-Fetch-Dest: empty
-+
-+scdaemon.conf
-+1
-+HKCU\Software\GNU\GnuPG:DefaultLogFile,
-+--debug-level level
-+HKCU\Software\GNU\GnuPG:DefaultLogFile,
-+scd-event
-+HKCU\Software\GNU\GnuPG:HomeDir
-+HKCU\Software\GNU\GnuPG:DefaultLogFile,
-+reader_n.status
-+HKCU\Software\GNU\GnuPG:HomeDir
-+
-+trustlist.txt file
-+gpg-agent.conf
-+HKCU\Software\GNU\GnuPG:HomeDir
-+name: release
-+debug-pinentry 
-+--debug 1024
-+
-+global trustlist (/usr/local/etc/gnupg/trustlist.tx
-+
-+Active cards
-+Active cards (inserted into a card reader or plugged in tokens) are always tried; they are ordered by their serial numbers.
-+gpg-connect-agent updatestartuptty /bye
-+Although all GnuPG components try to start the gpg-agent as needed, this is not possible for the ssh support because ssh does not know about it. Thus if no GnuPG tool which accesses the agent has been run, there is no guarantee that ssh is able to use gpg-agent for authentication. To fix this you may start gpg-agent if needed using this simple command:
-+
-+gpg-connect-agent /bye
-+--scdaemon-program filename
-+Use program filename as the Smartcard daemon. The default is installation dependent and can be shown with the gpgconf
-+--check-passphrase-pattern file
-+--check-sym-passphrase-pattern file
-+Check the passphrase against the pattern given in file. When entering a new passphrase matching one of these pattern a warning will be displayed. If file does not contain any slashes and does not start with "~/" it is searched in the system configuration directory (/usr/local/etc/gnupg)
-+bin\pinentry.exe, ..\Gpg4win\bin\pinentry.exe, ..\Gpg4win\pinentry.exe, ..\GNU\GnuPG\pinentry.exe, ..\GNU\bin\pinentry.exe, bin\pinentry-basic.exe
-+Keys listed in the sshcontrol file
-+--disable-extended-key-format
-+These options are obsolete and have no effect. The extended key format is used for years now and has been supported since 2.1.12. Existing keys in the old format are migrated to the new format as soon as they are touched.
-+
-+--enable-ssh-support
-+--enable-win32-openssh-support
-+--enable-putty-support
-+
-+gpg-connect-agent 'GETINFO s2k_count' /bye
-+gpg-connect-agent 'GETINFO s2k_time' /bye
-+To view the auto-calibrated count use:
-+
-+gpg-connect-agent 'GETINFO s2k_count_cal' /bye
-+--ssh-fingerprint-digest
-+Keys listed in the sshcontrol file
-+
-+Active card
-+gpg-connect-agent /bye
-+bashrc or whatever initialization file is used for all shell invocations:
-+
-+GPG_TTY=$(tty)
-+export GPG_TTY
-+--daemon [command line]
-+server
-+
-+agent-program file ¶
-+Specify the agent program to be started if none is running. The default value is determined by running gpgconf with the option --list-dirs.
-+
-+--gpg-program file
-+Specify a non-default gpg binary to be used by certain commands.
-+
-+--gpgsm-program file
-+Specify a non-default gpgsm binary to be used by certain commands.
-+
-+--chuid uid
-+Change the current user to uid which may either be a number or a name. This can be used from the root account to run gpg-card for another user. If uid is not the current UID a standard PATH is set and the envvar GNUPGHOME is unset. To override the latter the option --homedir can be used. This option has only an effect when used on the command line. This option has currently no effect at all on Windows.
-+
-+gpg-card
-+AUTHENTICATE [--setkey] [--raw] [< file]|010203040506070801020304050607080102030405060708] ¶
-+AUTH
-+FETCH
-+GENERATE [--force] [--algo=algo{+algo2}] keyref
-+KDF-SETUP ¶
-+Prepare the OpenPGP card KDF feature for this card.
-+
-+LANG [--clear]
-+Change the language info for the card. This info can be used by applications for a personalized greeting. Up to 4 two-digit language identifiers can be entered as a preference. The option --clear removes all identifiers. GnuPG does not use this info.
-+
-+LIST [--cards] [--apps] [--info] [--no-key-lookup] [n] [app]
-+NAME [--clear]
-+PRIVATEDO [--clear] n [< file] file
-+READCERT [--openpgp] certref 
