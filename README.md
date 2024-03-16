@@ -24,7 +24,7 @@ cd <SUBGRAPH_DIRECTORY>
 graph deploy <SUBGRAPH_NAME> \
   --version-label <VERSION_NAME> \
   --node https://subgraphs.alchemy.com/api/subgraphs/deploy \
-  --deploy-key <DEPLOY_KEY>
+  --deploy-key <skf75fXbMunwJ>
   --ipfs https://ipfs.satsuma.xyz
 
   import { AlchemySigner } from "@alchemy/aa-alchemy";
