@@ -1,5 +1,16 @@
 # FamousToday
 contract   graph init \      --product hosted-service     --from-contract &lt;CONTRACT_ADDRESS> \      [--network &lt;ETHEREUM_NETWORK>] \     [--abi &lt;FILE>] \      &lt;subgraph name>
+cd <SUBGRAPH_DIRECTORY>
+
+graph deploy <SUBGRAPH_NAME> \
+  --version-label <VERSION_NAME> \
+  --node https://subgraphs.alchemy.com/api/subgraphs/deploy \
+  --deploy-key <skf75fXbMunwJ> \
+  --ipfs https://ipfs.satsuma.xyz
+
+  DEPLOY_KEY=dummy_key VERSION_LABEL=v0.0.3 npm run deploy
+
+
 Install the graph-cli:
 
 Bash
@@ -137,7 +148,29 @@ print(response.text)
 
 curl -X POST https://subgraphs.alchemy.com/api/subgraphs/<TEAM ID>/<SUBGRAPH_NAME>/<VERSION_NAME>/promote-live \
  -H 'x-api-key: <whsec_Ka3G2XkXDVxzhdrFzG8n2OFq>'
-
+{
+  "jsonrpc": "2.0",
+  "id": 0,
+  "result": {
+    "address": "0x3f5ce5fbfe3e9af3971dd833d26ba9b5c936f0be",
+    "tokenBalances": [
+      {
+        "contractAddress": "0x0000000000085d4780b73119b644ae5ecd22b376",
+        "tokenBalance": "0x0000000000000000000000000000000000000000000000000000000000000000"
+      },
+      ......
+      {
+        "contractAddress": "0x0abefb7611cb3a01ea3fad85f33c3c934f8e2cf4",
+        "tokenBalance": "0x00000000000000000000000000000000000000000000039e431953bcb76c0000"
+      },
+      {
+        "contractAddress": "0x0ad0ad3db75ee726a284cfafa118b091493938ef",
+        "tokenBalance": "0x0000000000000000000000000000000000000000008d00cf60e47f03a33fe6e3"
+      }
+    ],
+    "pageKey": "0x0ad0ad3db75ee726a284cfafa118b091493938ef"
+  }
+}
 curl -X POST https://subgraphs.alchemy.com/api/subgraphs/<TEAM ID>/<SUBGRAPH_NAME>/<VERSION_NAME>/auto-promote-live \
  -H "Content-Type: application/json" -H "x-api-key: <whsec_Ka3G2XkXDVxzhdrFzG8n2OFq"
 
@@ -149,7 +182,10 @@ curl -v \
  'https://subgraph.satsuma-prod.com/<ORGANIZATION>/<SUBGRAPH_NAME>/version/<VERSION_NAME>/api' \
   -H 'x-api-key: <whsec_Ka3G2XkXDVxzhdrFzG8n2OFq>' \
   --data-raw '{"query":"{entities(first:1){id}}"}'
-
+curl https://eth-mainnet.g.alchemy.com/v2/demo \
+-X POST \
+-H "Content-Type: application/json" \
+-d '{"jsonrpc":"2.0","method":"alchemy_getTokenBalances","params": ["0x3f5ce5fbfe3e9af3971dd833d26ba9b5c936f0be", "erc20"],"id":"42"}'
 {
   "data": {
     "indexingStatusForCurrentVersion": {
