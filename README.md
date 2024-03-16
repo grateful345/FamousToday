@@ -1,4 +1,319 @@
 # FamousToday
+Example of multiline Markdown content
+
+- name: Generate list using Markdown
+  run: |
+    echo "This is the lead in sentence for the list" >> $GITHUB_STEP_SUMMARY
+    echo "" >> $GITHUB_STEP_SUMMARY # this is a blank line
+    echo "- Lets add a bullet point" >> $GITHUB_STEP_SUMMARY
+    echo "- Lets add a second bullet point" >> $GITHUB_STEP_SUMMARY
+    echo "- How about a third one?" >> $GITHUB_STEP_SUMMARY
+Overwriting job summaries
+
+To clear all content for the current step, you can use > to overwrite any previously added content in Bash, or remove -Append in PowerShell
+
+Example of overwriting job summaries
+
+- name: Overwrite Markdown
+  run: |
+    echo "Adding some Markdown content" >> $GITHUB_STEP_SUMMARY
+    echo "There was an error, we need to clear the previous Markdown with some new content." > $GITHUB_STEP_SUMMARY
+Removing job summaries
+
+To completely remove a summary for the current step, the file that GITHUB_STEP_SUMMARY references can be deleted.
+
+Example of removing job summaries
+
+- name: Delete all summary content
+  run: |
+    echo "Adding Markdown content that we want to remove before the step ends" >> $GITHUB_STEP_SUMMARY
+    rm $GITHUB_STEP_SUMMARY
+After a step has completed, job summaries are uploaded and subsequent steps cannot modify previously uploaded Markdown content. Summaries automatically mask any secrets that might have been added accidentally. If a job summary contains sensitive information that must be deleted, you can delete the entire workflow run to remove all its job summaries. For more information see "Deleting a workflow run."
+
+Step isolation and limits
+
+Job summaries are isolated between steps and each step is restricted to a maximum size of 1MiB. Isolation is enforced between steps so that potentially malformed Markdown from a single step cannot break Markdown rendering for subsequent steps. If more than 1MiB of content is added for a step, then the upload for the step will fail and an error annotation will be created. Upload failures for job summaries do not affect the overall status of a step or a job. A maximum of 20 job summaries from steps are displayed per job.
+
+Adding a system path
+
+Prepends a directory to the system PATH variable and automatically makes it available to all subsequent actions in the current job; the currently running action cannot access the updated path variable. To see the currently defined paths for your job, you can use echo "$PATH" in a step or an action.
+
+Bash
+echo "{path}" >> $GITHUB_PATH
+Example of adding a system path
+
+This example demonstrates how to add the user $HOME/.local/bin directory to PATH:
+
+Bash
+echo "$HOME/.local/bin" >> $GITHUB_PATH
+
+name: Greeting on variable day
+
+on:
+  workflow_dispatch
+
+env:
+  DAY_OF_WEEK: Monday
+
+jobs:
+  greeting_job:
+    runs-on: ubuntu-latest
+    env:
+      Greeting: Hello
+    steps:
+      - name: "Say Hello Mona it's Monday"
+        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
+        env:
+          First_Name: Mona
+
+name: Conditional env variable
+
+on: workflow_dispatch
+
+env:
+  DAY_OF_WEEK: Monday
+
+jobs:
+  greeting_job:
+    runs-on: ubuntu-latest
+    env:
+      Greeting: Hello
+    steps:
+      - name: "Say Hello Mona it's Monday"
+        if: ${{ env.DAY_OF_WEEK == 'Monday' }}
+        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
+        env:
+          First_Name: Mona
+
+run: echo "${{ env.Greeting }} ${{ env.First_Name }}. Today is ${{ env.DAY_OF_WEEK }}!"
+Note
+
+on:
+  workflow_dispatch:
+env:
+  # Setting an environment variable with the value of a configuration variable
+  env_var: ${{ vars.ENV_CONTEXT_VAR }}
+
+jobs:
+  display-variables:
+    name: ${{ vars.JOB_NAME }}
+    # You can use configuration variables with the `vars` context for dynamic jobs
+    if: ${{ vars.USE_VARIABLES == 'true' }}
+    runs-on: ${{ vars.RUNNER }}
+    environment: ${{ vars.ENVIRONMENT_STAGE }}
+    steps:
+    - name: Use variables
+      run: |
+        echo "repository variable : $REPOSITORY_VAR"
+        echo "organization variable : $ORGANIZATION_VAR"
+        echo "overridden variable : $OVERRIDE_VAR"
+        echo "variable from shell environment : $env_var"
+      env:
+        REPOSITORY_VAR: ${{ vars.REPOSITORY_VAR }}
+        ORGANIZATION_VAR: ${{ vars.ORGANIZATION_VAR }}
+        OVERRIDE_VAR: ${{ vars.OVERRIDE_VAR }}
+        
+    - name: ${{ vars.HELLO_WORLD_STEP }}
+      if: ${{ vars.HELLO_WORLD_ENABLED == 'true' }}
+      uses: actions/hello-world-javascript-action@main
+      with:
+        who-to-greet: ${{ vars.GREET_NAME }}
+
+on: workflow_dispatch
+
+jobs:
+  if-Windows-else:
+    runs-on: macos-latest
+    steps:
+      - name: condition 1
+        if: runner.os == 'Windows'
+        run: echo "The operating system on the runner is $env:RUNNER_OS."
+      - name: condition 2
+        if: runner.os != 'Windows'
+        run: echo "The operating system on the runner is not Windows, it's $RUNNER_OS."
+
+echo "{environment_variable_name}={value}" >> "$GITHUB_ENV"
+
+steps:
+  - name: Set the value
+    id: step_one
+    run: |
+      echo "action_state=yellow" >> "$GITHUB_ENV"
+  - name: Use the value
+    id: step_two
+    run: |
+      printf '%s\n' "$action_state" # This will output 'yellow'
+
+{name}<<{delimiter}
+{value}
+{delimiter}
+
+steps:
+  - name: Set the value in bash
+    id: step_one
+    run: |
+      {
+        echo 'JSON_RESPONSE<<EOF'
+        curl https://example.com
+        echo EOF
+      } >> "$GITHUB_ENV"
+
+echo "{name}={value}" >> "$GITHUB_OUTPUT"
+Example of setting an output parameter
+
+This example demonstrates how to set the SELECTED_COLOR output parameter and later retrieve it:
+
+YAML
+      - name: Set color
+        id: color-selector
+        run: echo "SELECTED_COLOR=green" >> "$GITHUB_OUTPUT"
+      - name: Get color
+        env:
+          SELECTED_COLOR: ${{ steps.color-selector.outputs.SELECTED_COLOR }}
+        run: echo "The selected color is $SELECTED_COLOR"
+Adding a job summary
+
+Bash
+echo "{markdown content}" >> $GITHUB_STEP_SUMMARY
+You can set some custom Markdown for each job so that it will be displayed on the summary page of a workflow run. You can use job summaries to display and group unique content, such as test result summaries, so that someone viewing the result of a workflow run doesn't need to go into the logs to see important information related to the run, such as failures.
+
+Job summaries support GitHub flavored Markdown, and you can add your Markdown content for a step to the GITHUB_STEP_SUMMARY environment file. GITHUB_STEP_SUMMARY is unique for each step in a job. For more information about the per-step file that GITHUB_STEP_SUMMARY references, see "Environment files."
+
+When a job finishes, the summaries for all steps in a job are grouped together into a single job summary and are shown on the workflow run summary page. If multiple jobs generate summaries, the job summaries are ordered by job completion time.
+
+Example of adding a job summary
+
+Bash
+echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
+
+steps:
+  - name: Hello world action
+    with: # Set the secret as an input
+      super_secret: ${{ secrets.SuperSecret }}
+    env: # Or as an environment variable
+      super_secret: ${{ secrets.SuperSecret }}
+Secrets cannot be directly referenced in if: conditionals. Instead, consider setting secrets as job-level environment variables, then referencing the environment variables to conditionally run steps in the job. For more information, see "Contexts" and jobs.<job_id>.steps[*].if.
+
+If a secret has not been set, the return value of an expression referencing the secret (such as ${{ secrets.SuperSecret }} in the example) will be an empty string.
+
+Avoid passing secrets between processes from the command line, whenever possible. Command-line processes may be visible to other users (using the ps command) or captured by security audit events. To help protect secrets, consider using environment variables, STDIN, or other mechanisms supported by the target process.
+
+If you must pass secrets within a command line, then enclose them within the proper quoting rules. Secrets often contain special characters that may unintentionally affect your shell. To escape these special characters, use quoting with your environment variables. For example:
+
+Example using Bash
+
+steps:
+  - shell: bash
+    env:
+      SUPER_SECRET: ${{ secrets.SuperSecret }}
+    run: |
+      example-command "$SUPER_SECRET"
+Example using PowerShell
+
+steps:
+  - shell: pwsh
+    env:
+      SUPER_SECRET: ${{ secrets.SuperSecret }}
+    run: |
+      example-command "$env:SUPER_SECRET"
+Example using Cmd.exe
+
+steps:
+  - shell: cmd
+    env:
+      SUPER_SECRET: ${{ secrets.SuperSecret }}
+    run: |
+      example-command "%SUPER_SECRET%"
+Limits for secrets
+
+You can store up to 1,000 organization secrets, 100 repository secrets, and 100 environment secrets.
+
+A workflow created in a repository can access the following number of secrets:
+
+All 100 repository secrets.
+If the repository is assigned access to more than 100 organization secrets, the workflow can only use the first 100 organization secrets (sorted alphabetically by secret name).
+All 100 environment secrets.
+Secrets are limited to 48 KB in size. To store larger secrets, see the "Storing large secrets" workaround below.
+
+Storing large secrets
+
+To use secrets that are larger than 48 KB, you can use a workaround to store secrets in your repository and save the decryption passphrase as a secret on GitHub. For example, you can use gpg to encrypt a file containing your secret locally before checking the encrypted file in to your repository on GitHub. For more information, see the "gpg manpage."
+
+Warning: Be careful that your secrets do not get printed when your workflow runs. When using this workaround, GitHub does not redact secrets that are printed in logs.
+Run the following command from your terminal to encrypt the file containing your secret using gpg and the AES256 cipher algorithm. In this example, my_secret.json is the file containing the secret.
+gpg --symmetric --cipher-algo AES256 my_secret.json
+You will be prompted to enter a passphrase. Remember the passphrase, because you'll need to create a new secret on GitHub that uses the passphrase as the value.
+Create a new secret that contains the passphrase. For example, create a new secret with the name LARGE_SECRET_PASSPHRASE and set the value of the secret to the passphrase you used in the step above.
+Copy your encrypted file to a path in your repository and commit it. In this example, the encrypted file is my_secret.json.gpg.
+Warning: Make sure to copy the encrypted my_secret.json.gpg file ending with the .gpg file extension, and not the unencrypted my_secret.json file.
+git add my_secret.json.gpg
+git commit -m "Add new secret JSON file"
+Create a shell script in your repository to decrypt the secret file. In this example, the script is named decrypt_secret.sh.
+Shell
+#!/bin/sh
+
+# Decrypt the file
+mkdir $HOME/secrets
+# --batch to prevent interactive command
+# --yes to assume "yes" for questions
+gpg --quiet --batch --yes --decrypt --passphrase="$LARGE_SECRET_PASSPHRASE" \
+--output $HOME/secrets/my_secret.json my_secret.json.gpg
+Ensure your shell script is executable before checking it in to your repository.
+chmod +x decrypt_secret.sh
+git add decrypt_secret.sh
+git commit -m "Add new decryption script"
+git push
+In your GitHub Actions workflow, use a step to call the shell script and decrypt the secret. To have a copy of your repository in the environment that your workflow runs in, you'll need to use the actions/checkout action. Reference your shell script using the run command relative to the root of your repository.
+name: Workflows with large secrets
+
+on: push
+
+jobs:
+  my-job:
+    name: My Job
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Decrypt large secret
+        run: ./decrypt_secret.sh
+        env:
+          LARGE_SECRET_PASSPHRASE: ${{ secrets.LARGE_SECRET_PASSPHRASE }}
+      # This command is just an example to show your secret being printed
+      # Ensure you remove any print statements of your secrets. GitHub does
+      # not hide secrets that use this workaround.
+      - name: Test printing your secret (Remove this step in production)
+        run: cat $HOME/secrets/my_secret.json
+Storing Base64 binary blobs as secrets
+
+You can use Base64 encoding to store small binary blobs as secrets. You can then reference the secret in your workflow and decode it for use on the runner. For the size limits, see "Using secrets in GitHub Actions."
+
+Note: Note that Base64 only converts binary to text, and is not a substitute for actual encryption.
+Use base64 to encode your file into a Base64 string. For example:
+On macOS, you could run:
+base64 -i cert.der -o cert.base64
+On Linux, you could run:
+base64 -w 0 cert.der > cert.base64
+Create a secret that contains the Base64 string. For example:
+$ gh secret set CERTIFICATE_BASE64 < cert.base64
+✓ Set secret CERTIFICATE_BASE64 for octocat/octorepo
+To access the Base64 string from your runner, pipe the secret to base64 --decode. For example:
+name: Retrieve Base64 secret
+on:
+  push:
+    branches: [ octo-branch ]
+jobs:
+  decode-secret:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Retrieve the secret and decode it to a file
+        env:
+          CERTIFICATE_BASE64: ${{ secrets.CERTIFICATE_BASE64 }}
+        run: |
+          echo $CERTIFICATE_BASE64 | base64 --decode > cert.der
+      - name: Show certificate information
+        run: |
+          openssl x509 -in cert.der -inform DER -text -noout
 
 MIB_agency_file.pdf
 3.62 MB
