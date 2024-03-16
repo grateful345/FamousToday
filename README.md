@@ -1173,6 +1173,933 @@ Run the hello_world executable file at the command line. e.g. On Linux, in the V
 
 ./hello_world
 
+From 0754042c55a2dcd664dbcaafdbe621e3f366ac01 Mon Sep 17 00:00:00 2001
+From: grateful345 <163609752+grateful345@users.noreply.github.com>
+Date: Sat, 16 Mar 2024 00:28:36 -0500
+Subject: [PATCH] Create Degicert
+
+---
+ Degicert | 530 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 530 insertions(+)
+ create mode 100644 Degicert
+
+diff --git a/Degicert b/Degicert
+new file mode 100644
+index 0000000..9898c25
+--- /dev/null
++++ b/Degicert
+@@ -0,0 +1,530 @@
++Account id degi cert : 
++90171939-7ae7-4884-85d4-9a5ccc670fa6
++
++Account id organizations :
++979310f6-db24-4c67-bcb9-6926d92cd6ec
++
++User id :
++fa5e727c-0527-44e0-9004-5fdc347b0b3f
++Organization ID :
++
++e3ff35d1-cea4-4508-acb5-99d9cbd91e80
++
++Organization ID. The id for each organization is returned in the List organizations endpoint (GET /account/api/v1/organization).
++
++
++Execute
++Clear
++Responses
++Curl
++
++curl -X 'GET' \
++  'https://one.digicert.com/account/api/v1/organization/e3ff35d1-cea4-4508-acb5-99d9cbd91e80' \
++  -H 'accept: application/json' \
++  -H 'X-API-Key: 10000'
++Request URL
++https://one.digicert.com/account/api/v1/organization/e3ff35d1-cea4-4508-acb5-99d9cbd91e80
++Server response
++Code	Details
++403
++Undocumented
++Error: Forbidden
++
++Response body
++Download
++{
++  "errors": [
++    {
++      "code": "AUTHORIZATION_ERROR",
++      "message": "No authentication data provided"
++    }
++  ]
++}
++Response headers
++ cache-control: no-cache,no-store,max-age=0,must-revalidate 
++ connection: keep-alive 
++ content-encoding: gzip 
++ content-security-policy: default-src 'self' dctrustassistant: http://localhost:*/ http://127.0.0.1:*/ https://127.0.0.1:*/ https://assets.adobedtm.com/ https://*.pendo.io/  https://www.googletagmanager.com/  https://www.google-analytics.com/ https://purecatamphetamine.github.io https://*.fullstory.com/ https://*.digicert.com/ https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.js https://*.storage.googleapis.com/ https://services.nvd.nist.gov blob: data: 'unsafe-inline' 'unsafe-eval'; 
++ content-type: application/json 
++ date: Sat,16 Mar 2024 05:01:28 GMT 
++ expires: 0 
++ pragma: no-cache 
++ referrer-policy: no-referrer 
++ strict-transport-security: max-age=15724800 
++ transfer-encoding: Identity 
++ vary: Accept-Encoding 
++ x-cdn: Imperva 
++ x-content-type-options: nosniff 
++ x-envoy-decorator-operation: account.dcone-prod.svc.cluster.local:8080/* 
++ x-envoy-upstream-service-time: 6 
++ x-frame-options: same-origin 
++ x-iinfo: 15-83102079-83102082 NNNY CT(36 39 0) RT(1710565287584 42) q(0 0 0 -1) r(0 0) U11 
++ x-xss-protection: 1; mode=block 
++Responses
++Code	Description	Links
++200	
++Organization details.
++
++Media type
++
++Controls Accept header.
++Example Value
++Schema
++{
++  "id": "70a9fe0e-4ae8-4a5a-940a-c2526970885f",
++  "name": "DigiCert Inc.",
++  "address": "2801 N Thanksgiving Way",
++  "address2": "Suite 500",
++  "zip_code": 84043,
++  "city": "Lehi",
++  "state": "Utah",
++  "country": "US",
++  "phone": "+1 (123) 456-7890",
++  "account": {
++    "id": "ff89491b-4477-431d-95d6-780f535df61e",
++    "name": "Example Account"
++  },
++  "active": true
++}
++
++curl -X 'GET' \
++  'https://one.digicert.com/account/api/v1/organization?account_id=979310f6-db24-4c67-bcb9-6926d92cd6ec' \
++  -H 'accept: application/json' \
++  -H 'X-API-Key: 10000'
++Request URL
++https://one.digicert.com/account/api/v1/organization?account_id=979310f6-db24-4c67-bcb9-6926d92cd6ec
++Server response
++Code Details
++403
++Undocumented
++Error: Forbidden
++
++Response body
++Download
++{
++  "errors": [
++    {
++      "code": "AUTHORIZATION_ERROR",
++      "message": "No authentication data provided"
++    }
++  ]
++}
++Response headers
++ cache-control: no-cache,no-store,max-age=0,must-revalidate 
++ connection: keep-alive 
++ content-encoding: gzip 
++ content-security-policy: default-src 'self' dctrustassistant: http://localhost:*/ http://127.0.0.1:*/ https://127.0.0.1:*/ https://assets.adobedtm.com/ https://*.pendo.io/  https://www.googletagmanager.com/  https://www.google-analytics.com/ https://purecatamphetamine.github.io https://*.fullstory.com/ https://*.digicert.com/ https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.js https://*.storage.googleapis.com/ https://services.nvd.nist.gov blob: data: 'unsafe-inline' 'unsafe-eval'; 
++ content-type: application/json 
++ date: Sat,16 Mar 2024 04:52:19 GMT 
++ expires: 0 
++ pragma: no-cache 
++ referrer-policy: no-referrer 
++ strict-transport-security: max-age=15724800 
++ transfer-encoding: Identity 
++ vary: Accept-Encoding 
++ x-cdn: Imperva 
++ x-content-type-options: nosniff 
++ x-envoy-decorator-operation: account.dcone-prod.svc.cluster.local:8080/* 
++ x-envoy-upstream-service-time: 10 
++ x-frame-options: same-origin 
++ x-iinfo: 15-83073046-83073052 NNNN CT(36 39 0) RT(1710564738237 37) q(0 0 1 -1) r(2 2) U11 
++ x-xss-protection: 1; mode=block 
++Responses
++Code Description Links
++200 
++Organization list
++
++Media type
++
++Controls Accept header.
++Example Value
++Schema
++[
++  {
++    "id": "d9674d8f-7ad6-4280-89b5-136c2aded288",
++    "name": "DigiCert Inc.",
++    "address": "2801 N Thanksgiving Way",
++    "address2": "Suite 500",
++    "zip_code": 84043,
++    "city": "Lehi",
++    "state": "Utah",
++    "country": "US",
++    "phone": "+1 (123) 456-7890",
++    "account": {
++      "id": "ff94b6dc-d360-4245-9918-0d0cf7ac347a",
++      "name": "Example Account"
++    },
++    "active": true
++  }
++]
++
++curl -X 'GET' \
++  'https://one.digicert.com/account/api/v1/account/90171939-7ae7-4884-85d4-9a5ccc670fa6' \
++  -H 'accept: application/json' \
++  -H 'X-API-Key: 1000'
++Request URL
++https://one.digicert.com/account/api/v1/account/90171939-7ae7-4884-85d4-9a5ccc670fa6
++
++{
++  "id": "ad65390a-0380-4522-bab6-f007c447757a",
++  "name": "Example account 1",
++  "active": true,
++  "service_period": {
++    "from": "2021-05-26",
++    "to": "2022-05-26"
++  },
++  "friendly_identifier": "7092363",
++  "admins": [
++    {
++      "id": "f7e866c9-768c-4442-adc9-abe2ba4b69d1",
++      "name": "Jane Doe",
++      "email": "jane.doe@example.com"
++    }
++  ],
++  "sign_in_methods": [
++    {
++      "signInMethod": "standard",
++      "status": "enabled",
++      "mfaStatus": "disabled",
++      "clientAuthCertLoginEnabled": false
++    }
++  ],
++  "oauth_clients": [],
++  "locale": "en_US"
++}
++No links
++
++GET
++
++curl -X 'GET' \
++  'https://one.digicert.com/account/api/v1/account/90171939-7ae7-4884-85d4-9a5ccc670fa6' \
++  -H 'accept: application/json' \
++  -H 'X-API-Key: 10000'
++Request URL
++https://one.digicert.com/account/api/v1/account/90171939-7ae7-4884-85d4-9a5ccc670fa6
++Server response
++Code Details
++403
++Undocumented
++Error: Forbidden
++
++Response body
++Download
++{
++  "errors": [
++    {
++      "code": "AUTHORIZATION_ERROR",
++      "message": "No authentication data provided"
++    }
++  ]
++}
++Response headers
++ cache-control: no-cache,no-store,max-age=0,must-revalidate 
++ connection: keep-alive 
++ content-encoding: gzip 
++ content-security-policy: default-src 'self' dctrustassistant: http://localhost:*/ http://127.0.0.1:*/ https://127.0.0.1:*/ https://assets.adobedtm.com/ https://*.pendo.io/  https://www.googletagmanager.com/  https://www.google-analytics.com/ https://purecatamphetamine.github.io https://*.fullstory.com/ https://*.digicert.com/ https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.js https://*.storage.googleapis.com/ https://services.nvd.nist.gov blob: data: 'unsafe-inline' 'unsafe-eval'; 
++ content-type: application/json 
++ date: Sat,16 Mar 2024 04:40:43 GMT 
++ expires: 0 
++ pragma: no-cache 
++ referrer-policy: no-referrer 
++ strict-transport-security: max-age=15724800 
++ transfer-encoding: Identity 
++ vary: Accept-Encoding 
++ x-cdn: Imperva 
++ x-content-type-options: nosniff 
++ x-envoy-decorator-operation: account.dcone-prod.svc.cluster.local:8080/* 
++ x-envoy-upstream-service-time: 6 
++ x-frame-options: same-origin 
++ x-iinfo: 12-53698010-53698015 NNNY CT(35 38 0) RT(1710564042696 63) q(0 0 0 -1) r(1 1) U11 
++ x-xss-protection: 1; mode=block
++
++curl -X 'GET' \
++  'https://one.digicert.com/account/api/v1/account?active=all&name=6309304695' \
++  -H 'accept: application/json' \
++  -H 'X-API-Key: 10000'
++Request URL
++https://one.digicert.com/account/api/v1/account?active=all&name=6309304695
++Server response
++Code Details
++403
++Undocumented
++Error: Forbidden
++
++Response body
++Download
++{
++  "errors": [
++    {
++      "code": "AUTHORIZATION_ERROR",
++      "message": "No authentication data provided"
++    }
++  ]
++}
++Response headers
++ cache-control: no-cache,no-store,max-age=0,must-revalidate 
++ connection: keep-alive 
++ content-encoding: gzip 
++ content-security-policy: default-src 'self' dctrustassistant: http://localhost:*/ http://127.0.0.1:*/ https://127.0.0.1:*/ https://assets.adobedtm.com/ https://*.pendo.io/  https://www.googletagmanager.com/  https://www.google-analytics.com/ https://purecatamphetamine.github.io https://*.fullstory.com/ https://*.digicert.com/ https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.js https://*.storage.googleapis.com/ https://services.nvd.nist.gov blob: data: 'unsafe-inline' 'unsafe-eval'; 
++ content-type: application/json 
++ date: Sat,16 Mar 2024 04:42:23 GMT 
++ expires: 0 
++ pragma: no-cache 
++ referrer-policy: no-referrer 
++ strict-transport-security: max-age=15724800 
++ transfer-encoding: Identity 
++ vary: Accept-Encoding 
++ x-cdn: Imperva 
++ x-content-type-options: nosniff 
++ x-envoy-decorator-operation: account.dcone-prod.svc.cluster.local:8080/* 
++ x-envoy-upstream-service-time: 6 
++ x-frame-options: same-origin 
++ x-iinfo: 7-14411267-14411269 NNNY CT(36 40 0) RT(1710564142411 41) q(0 0 0 -1) r(1 1) U11 
++ x-xss-protection: 1; mode=block 
++Responses
++Code Description Links
++200 
++List of accounts
++
++Media type
++
++Controls Accept header.
++Examples
++
++Example Value
++Schema
++[
++  {
++    "id": "50580ac7-60e4-4df2-a834-d12c1ab79afb",
++    "name": "Example account 1",
++    "active": true,
++    "service_period": {
++      "from": "2021-05-25",
++      "to": "2022-05-25"
++    },
++    "friendly_identifier": "5258283",
++    "admins": [
++      {
++        "id": "833e4906-fc45-4bd3-841e-40506c0e8ca8",
++        "email": "api_service_user_1@example.com"
++      },
++      {
++        "id": "fa8285c7-5e35-4ea8-8cc4-dc95f7dc3cd6",
++        "email": "api_service_user_2@example.com"
++      },
++      {
++        "id": "7d78b46a-c635-4bda-8b6d-13802046a963",
++        "name": "John Doe",
++        "email": "account_user_1@example.com"
++      }
++    ],
++    "sign_in_methods": [
++      {
++        "signInMethod": "standard",
++        "status": "enabled",
++        "mfaStatus": "disabled",
++        "clientAuthCertLoginEnabled": false
++      }
++    ],
++    "locale": "en_US"
++  },
++  {
++    "id": "be5ffbd2-1a50-4675-912f-2fe015812f87",
++    "name": "Example account 2",
++    "active": true,
++    "service_period": {
++      "from": "2021-05-26",
++      "to": "2022-05-26"
++    },
++    "friendly_identifier": "7092363",
++    "admins": [],
++    "sign_in_methods": [
++      {
++        "signInMethod": "standard",
++        "status": "enabled",
++        "mfaStatus": "disabled",
++        "clientAuthCertLoginEnabled": false
++      }
++    ],
++    "locale": "en_US"
++  }
++]
++
++Curl
++
++curl -X 'GET' \
++  'https://one.digicert.com/account/api/v1/api-access-token?user_id=fa5e727c-0527-44e0-9004-5fdc347b0b3f' \
++  -H 'accept: application/json' \
++  -H 'X-API-Key: 10000'
++Request URL
++https://one.digicert.com/account/api/v1/api-access-token?user_id=fa5e727c-0527-44e0-9004-5fdc347b0b3f
++Server response
++Code Details
++403
++Undocumented
++Error: Forbidden
++
++Response body
++Download
++{
++  "errors": [
++    {
++      "code": "AUTHORIZATION_ERROR",
++      "message": "No authentication data provided"
++    }
++  ]
++}
++Response headers
++ cache-control: no-cache,no-store,max-age=0,must-revalidate 
++ connection: keep-alive 
++ content-encoding: gzip 
++ content-security-policy: default-src 'self' dctrustassistant: http://localhost:*/ http://127.0.0.1:*/ https://127.0.0.1:*/ https://assets.adobedtm.com/ https://*.pendo.io/  https://www.googletagmanager.com/  https://www.google-analytics.com/ https://purecatamphetamine.github.io https://*.fullstory.com/ https://*.digicert.com/ https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.js https://*.storage.googleapis.com/ https://services.nvd.nist.gov blob: data: 'unsafe-inline' 'unsafe-eval'; 
++ content-type: application/json 
++ date: Sat,16 Mar 2024 04:44:01 GMT 
++ expires: 0 
++ pragma: no-cache 
++ referrer-policy: no-referrer 
++ strict-transport-security: max-age=15724800 
++ transfer-encoding: Identity 
++ vary: Accept-Encoding 
++ x-cdn: Imperva 
++ x-content-type-options: nosniff 
++ x-envoy-decorator-operation: account.dcone-prod.svc.cluster.local:8080/* 
++ x-envoy-upstream-service-time: 5 
++ x-frame-options: same-origin 
++ x-iinfo: 15-83048556-83048560 NNNY CT(36 38 0) RT(1710564241016 44) q(0 0 0 -1) r(1 1) U11 
++ x-xss-protection: 1; mode=block 
++Responses
++Code Description Links
++200 
++Success
++
++Media type
++
++Controls Accept header.
++Example Value
++Schema
++[
++  {
++    "id": "7b5d83e7-6e5f-4ade-ad48-111c6f3420f7",
++    "user_id": "e7ea1214-d688-48ba-aa1b-131fb2867ac5",
++    "name": "API token name",
++    "end_date": "2022-05-30T23:59:59Z",
++    "start_date": "2021-06-25T21:20:06Z",
++    "active": true,
++    "enabled": true,
++    "masked_api_key": "*************9e2a1"
++  }
++]
++
++Curl
++
++curl -X 'GET' \
++  'https://one.digicert.com/account/api/v1/locales' \
++  -H 'accept: application/json' \
++  -H 'X-API-Key: 10000'
++Request URL
++https://one.digicert.com/account/api/v1/locales
++Server response
++Code Details
++200 
++Response body
++Download
++[
++  {
++    "code": "de_DE",
++    "language": "Deutsch"
++  },
++  {
++    "code": "en_US",
++    "language": "English"
++  },
++  {
++    "code": "es_ES",
++    "language": "Español"
++  },
++  {
++    "code": "fr_FR",
++    "language": "Français"
++  },
++  {
++    "code": "it_IT",
++    "language": "Italiano"
++  },
++  {
++    "code": "ja_JP",
++    "language": "日本語"
++  },
++  {
++    "code": "ko_KR",
++    "language": "한국어"
++  },
++  {
++    "code": "nl_NL",
++    "language": "Nederlands"
++  },
++  {
++    "code": "pt_BR",
++    "language": "Português"
++  },
++  {
++    "code": "ru_RU",
++    "language": "Русский"
++  },
++  {
++    "code": "zh_CN",
++    "language": "简体中文"
++  },
++  {
++    "code": "zh_TW",
++    "language": "繁體中文"
++  }
++]
++Response headers
++ cache-control: no-cache,no-store,max-age=0,must-revalidate 
++ connection: keep-alive 
++ content-encoding: gzip 
++ content-security-policy: default-src 'self' dctrustassistant: http://localhost:*/ http://127.0.0.1:*/ https://127.0.0.1:*/ https://assets.adobedtm.com/ https://*.pendo.io/  https://www.googletagmanager.com/  https://www.google-analytics.com/ https://purecatamphetamine.github.io https://*.fullstory.com/ https://*.digicert.com/ https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.js https://*.storage.googleapis.com/ https://services.nvd.nist.gov blob: data: 'unsafe-inline' 'unsafe-eval'; 
++ content-type: application/json 
++ date: Sat,16 Mar 2024 04:50:15 GMT 
++ expires: 0 
++ pragma: no-cache 
++ referrer-policy: no-referrer 
++ strict-transport-security: max-age=15724800 
++ transfer-encoding: Identity 
++ vary: Accept-Encoding 
++ x-cdn: Imperva 
++ x-content-type-options: nosniff 
++ x-envoy-decorator-operation: account.dcone-prod.svc.cluster.local:8080/* 
++ x-envoy-upstream-service-time: 7 
++ x-frame-options: same-origin 
++ x-iinfo: 18-118172517-118172518 NNNN CT(35 39 0) RT(1710564614160 42) q(0 0 0 -1) r(1 1) U2 
++ x-xss-protection: 1; mode=block 
++Responses
++Code Description Links
++200 
++Locales list
++
++Media type
++
++Controls Accept header.
++Examples
++
++Example Value
++Schema
++[
++  {
++    "code": "de_DE",
++    "language": "Deutsch"
++  },
++  {
++    "code": "en_US",
++    "language": "English"
++  },
++  {
++    "code": "es_ES",
++    "language": "Español"
++  },
++  {
++    "code": "fr_FR",
++    "language": "Français"
+
++    
+Windows runner BHAHZGCJZK3BEVS7IRGZMKDF6USLO
+Linux Runner 
+BHAHZGCJZK3BEVS7IRGZMKDF6USLO
+# FamousToday
+
+Here is a simple flow chart:
+
+```mermaid
+graph TD;
+    A-->B;
+    A-->C;
+    B-->D;
+    C-->D;
+```
+Screenshot of a rendered Mermaid flow chart with four lavender boxes labeled A, B, C, and D. Arrows extend from A to B, from B to D, from A to C, and from C to D.
+
+Note: You may observe errors if you run a third-party Mermaid plugin when using Mermaid syntax on GitHub.
+Creating GeoJSON and TopoJSON maps
+
+You can use GeoJSON or TopoJSON syntax to create interactive maps. To create a map, add GeoJSON or TopoJSON inside a fenced code block with the geojson or topojson syntax identifier. For more information, see "Creating and highlighting code blocks."
+
+Using GeoJSON
+
+For example, you can create a map by specifying coordinates.
+
+```geojson
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 1,
+      "properties": {
+        "ID": 0
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+              [-90,35],
+              [-90,30],
+              [-85,30],
+              [-85,35],
+              [-90,35]
+          ]
+        ]
+      }
+    }
+  ]
+}
+```
+Screenshot of a rendered GeoJSON map of the southeastern United States with a purple rectangular overlay over parts of Alabama and Mississippi.
+
+Using TopoJSON
+
+For example, you can create a TopoJSON map by specifying coordinates and shapes.
+
+```topojson
+{
+  "type": "Topology",
+  "transform": {
+    "scale": [0.0005000500050005, 0.00010001000100010001],
+    "translate": [100, 0]
+  },
+  "objects": {
+    "example": {
+      "type": "GeometryCollection",
+      "geometries": [
+        {
+          "type": "Point",
+          "properties": {"prop0": "value0"},
+          "coordinates": [4000, 5000]
+        },
+        {
+          "type": "LineString",
+          "properties": {"prop0": "value0", "prop1": 0},
+          "arcs": [0]
+        },
+        {
+          "type": "Polygon",
+          "properties": {"prop0": "value0",
+            "prop1": {"this": "that"}
+          },
+          "arcs": [[1]]
+        }
+      ]
+    }
+  },
+  "arcs": [[[4000, 0], [1999, 9999], [2000, -9999], [2000, 9999]],[[0, 0], [0, 9999], [2000, 0], [0, -9999], [-2000, 0]]]
+}
+```
+Screenshot of a rendered TopoJSON map of western Indonesia and part of Singapore and Malaysia with a blue point, a purple rectangular overlay, and blue zigzag lines.
+
+For more information on working with .geojson and .topojson files, see "Working with non-code files."
+
+Creating STL 3D models
+
+You can use ASCII STL syntax directly in markdown to create interactive 3D models. To display a model, add ASCII STL syntax inside a fenced code block with the stl syntax identifier. For more information, see "Creating and highlighting code blocks."
+
+For example, you can create a simple 3D model:
+
+```stl
+solid cube_corner
+  facet normal 0.0 -1.0 0.0
+    outer loop
+      vertex 0.0 0.0 0.0
+      vertex 1.0 0.0 0.0
+      vertex 0.0 0.0 1.0
+    endloop
+  endfacet
+  facet normal 0.0 0.0 -1.0
+    outer loop
+      vertex 0.0 0.0 0.0
+      vertex 0.0 1.0 0.0
+      vertex 1.0 0.0 0.0
+    endloop
+  endfacet
+  facet normal -1.0 0.0 0.0
+    outer loop
+      vertex 0.0 0.0 0.0
+      vertex 0.0 0.0 1.0
+      vertex 0.0 1.0 0.0
+    endloop
+  endfacet
+  facet normal 0.577 0.577 0.577
+    outer loop
+      vertex 1.0 0.0 0.0
+      vertex 0.0 1.0 0.0
+      vertex 0.0 0.0 1.0
+    endloop
+  endfacet
+endsolid
+```
+Screenshot of a rendered, manipulable 3D model showing a blue pyramid atop a grid of black lines on a white ground. Options to select "Wireframe," "Surface Angle," or "Solid" appear at bottom.
+
+For more information on working with .stl files, see "Working with non-code files."
+Press alt+up to activate
+Help and sup
+  $ RoadRunner ReadMe
+Host github.com-repo-0
+        Hostname github.com
+        IdentityFile=/home/user/.ssh/repo-0_deploy_key
+
+Host github.com-repo-1
+        Hostname github.com
+        IdentityFile=/home/user/.ssh/repo-1_deploy_key
+Host github.com-repo-0 - The repository's alias.
+Hostname github.com - Configures the hostname to use with the alias.
+IdentityFile=/home/user/.ssh/repo-0_deploy_key - Assigns a private key to the alias.
+You can then use the hostname's alias to interact with the repository using SSH, which will use the unique deploy key assigned to that alias. For example:
+
+git clone git@github.com-repo-1:OWNER/repo-1.git
+
+curl --request GET \
+--url "https://api.github.com/app" \
+--header "Accept: application/vnd.github+json" \
+--header "Authorization: Bearer YOUR_JWT" \
+--header "X-GitHub-Api-Version: 2022-11-28"
+In most cases, you can use Authorization: Bearer or Authorization: token to pass a token. However, if you are passing a JSON web token (JWT), you must use Authorization: Bearer
+
+require 'openssl'
+require 'jwt'  # https://rubygems.org/gems/jwt
+
+# Private key contents
+private_pem = File.read("YOUR_PATH_TO_PEM")
+private_key = OpenSSL::PKey::RSA.new(private_pem)
+
+# Generate the JWT
+payload = {
+  # issued at time, 60 seconds in the past to allow for clock drift
+  iat: Time.now.to_i - 60,
+  # JWT expiration time (10 minute maximum)
+  exp: Time.now.to_i + (10 * 60),
+  # GitHub App's identifier
+  iss: "YOUR_APP_ID"
+}
+
+jwt = JWT.encode(payload, private_key, "RS256")
+puts jwt
+Example: Using Python to generate a JWT
+
+Note: You must run pip install jwt to install the jwt package in order to use this script.
+Python
+#!/usr/bin/env python3
+from jwt import JWT, jwk_from_pem
+import time
+import sys
+
+# Get PEM file path
+if len(sys.argv) > 1:
+    pem = sys.argv[1]
+else:
+    pem = input("Enter path of private PEM file: ")
+
+# Get the App ID
+if len(sys.argv) > 2:
+    app_id = sys.argv[2]
+else:
+    app_id = input("Enter your APP ID: ")
+
+# Open PEM
+with open(pem, 'rb') as pem_file:
+    signing_key = jwk_from_pem(pem_file.read())
+
+payload = {
+    # Issued at time
+    'iat': int(time.time()),
+    # JWT expiration time (10 minutes maximum)
+    'exp': int(time.time()) + 600,
+    # GitHub App's identifier
+    'iss': app_id
+}
+
+# Create JWT
+jwt_instance = JWT()
+encoded_jwt = jwt_instance.encode(payload, signing_key, alg='RS256')
+
+print(f"JWT:  {encoded_jwt}")
+This script will prompt you for the file path where your private key is stored and for the ID of your app. Alternatively, you can pass those values as inline arguments when you execute the script.
+
+Example: Using Bash to generate a JWT
+
+Note: You must pass your App ID and the file path where your private key is stored as arguments when running this script.
+Bash
+#!/usr/bin/env bash
+
+set -o pipefail
+
+app_id=$1 # App ID as first argument
+pem=$( cat $2 ) # file path of the private key as second argument
+
+now=$(date +%s)
+iat=$((${now} - 60)) # Issues 60 seconds in the past
+exp=$((${now} + 600)) # Expires 10 minutes in the future
+
+b64enc() { openssl base64 | tr -d '=' | tr '/+' '_-' | tr -d '\n'; }
+
+header_json='{
+    "typ":"JWT",
+    "alg":"RS256"
+}'
+# Header encode
+header=$( echo -n "${header_json}" | b64enc )
+
+payload_json='{
+    "iat":'"${iat}"',
+    "exp":'"${exp}"',
+    "iss":'"${app_id}"'
+}'
+# Payload encode
+payload=$( echo -n "${payload_json}" | b64enc )
+
+# Signature
+header_payload="${header}"."${payload}"
+signature=$( 
+    openssl dgst -sha256 -sign <(echo -n "${pem}") \
+    <(echo -n "${header_payload}") | b64enc 
+)
+
+# Create JWT
+JWT="${header_payload}"."${signature}"
+printf '%s\n' "JWT: $JWT"
+Example: Using PowerShell to generate a JWT
+
+In the following example, replace YOUR_PATH_TO_PEM with the file path where your private key is stored. Replace YOUR_APP_ID with the ID of your app. Make sure to enclose the values for YOUR_PATH_TO_PEM in double quotes.
+
+PowerShell
+#!/usr/bin/env pwsh
+
+$app_id = YOUR_APP_ID
+$private_key_path = "YOUR_PATH_TO_PEM"
+
+$header = [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes((ConvertTo-Json -InputObject @{
+  alg = "RS256"
+  typ = "JWT"
+}))).TrimEnd('=').Replace('+', '-').Replace('/', '_');
+
+$payload = [Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes((ConvertTo-Json -InputObject @{
+  iat = [System.DateTimeOffset]::UtcNow.AddSeconds(-10).ToUnixTimeSeconds()  
+  exp = [System.DateTimeOffset]::UtcNow.AddMinutes(10).ToUnixTimeSeconds()
+  iss = $app_id    
+}))).TrimEnd('=').Replace('+', '-').Replace('/', '_');
+
+$rsa = [System.Security.Cryptography.RSA]::Create()
+$rsa.ImportFromPem((Get-Content $private_key_path -Raw))
+
+$signature = [Convert]::ToBase64String($rsa.SignData([System.Text.Encoding]::UTF8.GetBytes("$header.$payload"), [System.Security.Cryptography.HashAlgorithmName]::SHA256, [System.Security.Cryptography.RSASignaturePadding]::Pkcs1)).TrimEnd('=').Replace('+', '-').Replace('/', '_')
+$jwt = "$header.$payload.$signature"
+Write-Host $jwt
+
+remote:   —— GitHub Personal Access Token ——————————————————————
+remote:    locations:
+remote:      - commit: 8728dbe67
+remote:        path: README.md:4
+remote:      - commit: 03d69e5d3
+remote:        path: README.md:4
+remote:      - commit: 8053f7b27
+remote:        path: README.md:4
+Next, run git log to see a full history of all the commits on your branch, along with their corresponding timestamps.
+test-repo (test-branch)]$ git log
+commit 8053f7b27 (HEAD -> main)
+Author: Octocat <1000+octocat@users.noreply.github.com
+Date:   Tue Jan 30 13:03:37 2024 +0100
+
+  my fourth commit message
+
+commit 03d69e5d3
+Author: Octocat <1000+octocat@users.noreply.github.com>
+Date:   Tue Jan 30 13:02:59 2024 +0100
+
+  my third commit message
+
+commit 8728dbe67
+Author: Octocat <1000+octocat@users.noreply.github.com
+Date:   Tue Jan 30 13:01:36 2024 +0100
+
+  my second commit message
+
+commit 6057cbe51
+Author: Octocat <1000+octocat@users.noreply.github.com
+Date:   Tue Jan 30 12:58:24 2024 +0100
+
+  my first commit message
+
+Focusing only on the commits that contain the secret, use the output of git log to identify which commit comes earliest in your Git history.
+In the example, commit 8728dbe67 was the first commit to contain the secret.
+Start an interactive rebase with git rebase -i <COMMIT-ID>~1.
+For <COMMIT-ID>, use the commit identified in step 3. For example, git rebase -i 8728dbe67~1.
+In the editor, choose to edit the commit identified in step 3 by changing pick to edit on the first line of the text.
+edit 8728dbe67 my second commit message
+pick 03d69e5d3 my third commit message
+pick 8053f7b27 my fourth commit message
+gh pr checkout 1
+brew install gh
+or
+Download for Mac
+View installation instructions →
+$ gh release create
+# Create a folder
+$ mkdir actions-runner && cd actions-runner
+# Download the latest runner package
+$ curl -o actions-runner-linux-arm64-2.314.1.tar.gz -L https://github.com/actions/runner/releases/download/v2.314.1/actions-runner-linux-arm64-2.314.1.tar.gz
+# Optional: Validate the hash
+$ echo "3d27b1340086115a118e28628a11ae727ecc6b857430c4b1b6cbe64f1f3b6789  actions-runner-linux-arm64-2.314.1.tar.gz" | shasum -a 256 -c
+# Extract the installer
+$ tar xzf ./actions-runner-linux-arm64-2.314.1.tar.gz
+Configure
+# Create the runner and start the configuration experience
+$ ./config.sh --url https://github.com/grateful345/Wiz-Go-call-sign --token BHAHZGCJZK3BEVS7IRGZMKDF6USLO
+# Last step, run it!
+$ ./run.sh
+Using your self-hosted runner
+# Use this YAML in your workflow file for each job
+runs-on: self-hosted
+
+Windows.
+
+# Create a folder under the drive root
+$ mkdir actions-runner; cd actions-runner
+# Download the latest runner package
+$ Invoke-WebRequest -Uri https://github.com/actions/runner/releases/download/v2.314.1/actions-runner-win-arm64-2.314.1.zip -OutFile actions-runner-win-arm64-2.314.1.zip
+# Optional: Validate the hash
+$ if((Get-FileHash -Path actions-runner-win-arm64-2.314.1.zip -Algorithm SHA256).Hash.ToUpper() -ne 'acc807696d1dcad6fb45f6038f884185c54c48127445c365e86d03adb164a9e2'.ToUpper()){ throw 'Computed checksum did not match' }
+# Extract the installer
+$ Add-Type -AssemblyName System.IO.Compression.FileSystem ; [System.IO.Compression.ZipFile]::ExtractToDirectory("$PWD/actions-runner-win-arm64-2.314.1.zip", "$PWD")
+Configure
+# Create the runner and start the configuration experience
+$ ./config.cmd --url https://github.com/grateful345/Wiz-Go-call-sign --token BHAHZGCJZK3BEVS7IRGZMKDF6USLO
+# Run it!
+$ ./run.cmd
+Using your self-hosted runner
+# Use this YAML in your workflow file for each job
+runs-on: self-hosted
+fee957d729b358d84b9d1a8182a2b1dd633689c9 (Fandom $$$ token rare)
+
+Stripe-Signature:
+t=1492774577,
+v1=5257a869e7ecebeda32affa62cdca3fa51cad7e77a0e56ff536d0ce8e108d8bd,
+v0=6ffbb59b2300aae63f272406069a9788598b792a944a07aba816edb039
 git config --global --unset gpg.format
 Use the gpg --list-secret-keys --keyid-format=long command to list the long form of the GPG keys for which you have both a public and private key. A private key is required for signing commits or tags.
 Shell
@@ -1247,8 +2174,535 @@ curl --request GET \
 --header "Accept: application/vnd.github+json" \
 --header "Authorization: Bearer USER_ACCESS_TOKEN" \
 --header "X-GitHub-Api-Version: 2022-11-28"
+Account id degi cert : 
+90171939-7ae7-4884-85d4-9a5ccc670fa6
 
-  
+Account id organizations :
+979310f6-db24-4c67-bcb9-6926d92cd6ec
+
+User id :
+fa5e727c-0527-44e0-9004-5fdc347b0b3f
+Organization ID :
+
+e3ff35d1-cea4-4508-acb5-99d9cbd91e80
+
+Organization ID. The id for each organization is returned in the List organizations endpoint (GET /account/api/v1/organization).
+
+Execute
+Clear
+Responses
+Curl
+
+curl -X 'GET' \
+  'https://one.digicert.com/account/api/v1/organization/e3ff35d1-cea4-4508-acb5-99d9cbd91e80' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: 10000'
+Request URL
+https://one.digicert.com/account/api/v1/organization/e3ff35d1-cea4-4508-acb5-99d9cbd91e80
+Server response
+Code Details
+403
+Undocumented
+Error: Forbidden
+
+Response body
+Download
+{
+  "errors": [
+    {
+      "code": "AUTHORIZATION_ERROR",
+      "message": "No authentication data provided"
+    }
+  ]
+}
+Response headers
+ cache-control: no-cache,no-store,max-age=0,must-revalidate 
+ connection: keep-alive 
+ content-encoding: gzip 
+ content-security-policy: default-src 'self' dctrustassistant: http://localhost:*/ http://127.0.0.1:*/ https://127.0.0.1:*/ https://assets.adobedtm.com/ https://*.pendo.io/  https://www.googletagmanager.com/  https://www.google-analytics.com/ https://purecatamphetamine.github.io https://*.fullstory.com/ https://*.digicert.com/ https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.js https://*.storage.googleapis.com/ https://services.nvd.nist.gov blob: data: 'unsafe-inline' 'unsafe-eval'; 
+ content-type: application/json 
+ date: Sat,16 Mar 2024 05:01:28 GMT 
+ expires: 0 
+ pragma: no-cache 
+ referrer-policy: no-referrer 
+ strict-transport-security: max-age=15724800 
+ transfer-encoding: Identity 
+ vary: Accept-Encoding 
+ x-cdn: Imperva 
+ x-content-type-options: nosniff 
+ x-envoy-decorator-operation: account.dcone-prod.svc.cluster.local:8080/* 
+ x-envoy-upstream-service-time: 6 
+ x-frame-options: same-origin 
+ x-iinfo: 15-83102079-83102082 NNNY CT(36 39 0) RT(1710565287584 42) q(0 0 0 -1) r(0 0) U11 
+ x-xss-protection: 1; mode=block 
+Responses
+Code Description Links
+200 
+Organization details.
+
+Media type
+
+Controls Accept header.
+Example Value
+Schema
+{
+  "id": "70a9fe0e-4ae8-4a5a-940a-c2526970885f",
+  "name": "DigiCert Inc.",
+  "address": "2801 N Thanksgiving Way",
+  "address2": "Suite 500",
+  "zip_code": 84043,
+  "city": "Lehi",
+  "state": "Utah",
+  "country": "US",
+  "phone": "+1 (123) 456-7890",
+  "account": {
+    "id": "ff89491b-4477-431d-95d6-780f535df61e",
+    "name": "Example Account"
+  },
+  "active": true
+}
+
+curl -X 'GET' \
+  'https://one.digicert.com/account/api/v1/organization?account_id=979310f6-db24-4c67-bcb9-6926d92cd6ec' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: 10000'
+Request URL
+https://one.digicert.com/account/api/v1/organization?account_id=979310f6-db24-4c67-bcb9-6926d92cd6ec
+Server response
+Code Details
+403
+Undocumented
+Error: Forbidden
+
+Response body
+Download
+{
+  "errors": [
+    {
+      "code": "AUTHORIZATION_ERROR",
+      "message": "No authentication data provided"
+    }
+  ]
+}
+Response headers
+ cache-control: no-cache,no-store,max-age=0,must-revalidate 
+ connection: keep-alive 
+ content-encoding: gzip 
+ content-security-policy: default-src 'self' dctrustassistant: http://localhost:*/ http://127.0.0.1:*/ https://127.0.0.1:*/ https://assets.adobedtm.com/ https://*.pendo.io/  https://www.googletagmanager.com/  https://www.google-analytics.com/ https://purecatamphetamine.github.io https://*.fullstory.com/ https://*.digicert.com/ https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.js https://*.storage.googleapis.com/ https://services.nvd.nist.gov blob: data: 'unsafe-inline' 'unsafe-eval'; 
+ content-type: application/json 
+ date: Sat,16 Mar 2024 04:52:19 GMT 
+ expires: 0 
+ pragma: no-cache 
+ referrer-policy: no-referrer 
+ strict-transport-security: max-age=15724800 
+ transfer-encoding: Identity 
+ vary: Accept-Encoding 
+ x-cdn: Imperva 
+ x-content-type-options: nosniff 
+ x-envoy-decorator-operation: account.dcone-prod.svc.cluster.local:8080/* 
+ x-envoy-upstream-service-time: 10 
+ x-frame-options: same-origin 
+ x-iinfo: 15-83073046-83073052 NNNN CT(36 39 0) RT(1710564738237 37) q(0 0 1 -1) r(2 2) U11 
+ x-xss-protection: 1; mode=block 
+Responses
+Code Description Links
+200 
+Organization list
+
+Media type
+
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "id": "d9674d8f-7ad6-4280-89b5-136c2aded288",
+    "name": "DigiCert Inc.",
+    "address": "2801 N Thanksgiving Way",
+    "address2": "Suite 500",
+    "zip_code": 84043,
+    "city": "Lehi",
+    "state": "Utah",
+    "country": "US",
+    "phone": "+1 (123) 456-7890",
+    "account": {
+      "id": "ff94b6dc-d360-4245-9918-0d0cf7ac347a",
+      "name": "Example Account"
+    },
+    "active": true
+  }
+]
+
+curl -X 'GET' \
+  'https://one.digicert.com/account/api/v1/account/90171939-7ae7-4884-85d4-9a5ccc670fa6' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: 1000'
+Request URL
+https://one.digicert.com/account/api/v1/account/90171939-7ae7-4884-85d4-9a5ccc670fa6
+
+{
+  "id": "ad65390a-0380-4522-bab6-f007c447757a",
+  "name": "Example account 1",
+  "active": true,
+  "service_period": {
+    "from": "2021-05-26",
+    "to": "2022-05-26"
+  },
+  "friendly_identifier": "7092363",
+  "admins": [
+    {
+      "id": "f7e866c9-768c-4442-adc9-abe2ba4b69d1",
+      "name": "Jane Doe",
+      "email": "jane.doe@example.com"
+    }
+  ],
+  "sign_in_methods": [
+    {
+      "signInMethod": "standard",
+      "status": "enabled",
+      "mfaStatus": "disabled",
+      "clientAuthCertLoginEnabled": false
+    }
+  ],
+  "oauth_clients": [],
+  "locale": "en_US"
+}
+No links
+
+GET
+
+curl -X 'GET' \
+  'https://one.digicert.com/account/api/v1/account/90171939-7ae7-4884-85d4-9a5ccc670fa6' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: 10000'
+Request URL
+https://one.digicert.com/account/api/v1/account/90171939-7ae7-4884-85d4-9a5ccc670fa6
+Server response
+Code Details
+403
+Undocumented
+Error: Forbidden
+
+Response body
+Download
+{
+  "errors": [
+    {
+      "code": "AUTHORIZATION_ERROR",
+      "message": "No authentication data provided"
+    }
+  ]
+}
+Response headers
+ cache-control: no-cache,no-store,max-age=0,must-revalidate 
+ connection: keep-alive 
+ content-encoding: gzip 
+ content-security-policy: default-src 'self' dctrustassistant: http://localhost:*/ http://127.0.0.1:*/ https://127.0.0.1:*/ https://assets.adobedtm.com/ https://*.pendo.io/  https://www.googletagmanager.com/  https://www.google-analytics.com/ https://purecatamphetamine.github.io https://*.fullstory.com/ https://*.digicert.com/ https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.js https://*.storage.googleapis.com/ https://services.nvd.nist.gov blob: data: 'unsafe-inline' 'unsafe-eval'; 
+ content-type: application/json 
+ date: Sat,16 Mar 2024 04:40:43 GMT 
+ expires: 0 
+ pragma: no-cache 
+ referrer-policy: no-referrer 
+ strict-transport-security: max-age=15724800 
+ transfer-encoding: Identity 
+ vary: Accept-Encoding 
+ x-cdn: Imperva 
+ x-content-type-options: nosniff 
+ x-envoy-decorator-operation: account.dcone-prod.svc.cluster.local:8080/* 
+ x-envoy-upstream-service-time: 6 
+ x-frame-options: same-origin 
+ x-iinfo: 12-53698010-53698015 NNNY CT(35 38 0) RT(1710564042696 63) q(0 0 0 -1) r(1 1) U11 
+ x-xss-protection: 1; mode=block
+
+curl -X 'GET' \
+  'https://one.digicert.com/account/api/v1/account?active=all&name=6309304695' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: 10000'
+Request URL
+https://one.digicert.com/account/api/v1/account?active=all&name=6309304695
+Server response
+Code Details
+403
+Undocumented
+Error: Forbidden
+
+Response body
+Download
+{
+  "errors": [
+    {
+      "code": "AUTHORIZATION_ERROR",
+      "message": "No authentication data provided"
+    }
+  ]
+}
+Response headers
+ cache-control: no-cache,no-store,max-age=0,must-revalidate 
+ connection: keep-alive 
+ content-encoding: gzip 
+ content-security-policy: default-src 'self' dctrustassistant: http://localhost:*/ http://127.0.0.1:*/ https://127.0.0.1:*/ https://assets.adobedtm.com/ https://*.pendo.io/  https://www.googletagmanager.com/  https://www.google-analytics.com/ https://purecatamphetamine.github.io https://*.fullstory.com/ https://*.digicert.com/ https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.js https://*.storage.googleapis.com/ https://services.nvd.nist.gov blob: data: 'unsafe-inline' 'unsafe-eval'; 
+ content-type: application/json 
+ date: Sat,16 Mar 2024 04:42:23 GMT 
+ expires: 0 
+ pragma: no-cache 
+ referrer-policy: no-referrer 
+ strict-transport-security: max-age=15724800 
+ transfer-encoding: Identity 
+ vary: Accept-Encoding 
+ x-cdn: Imperva 
+ x-content-type-options: nosniff 
+ x-envoy-decorator-operation: account.dcone-prod.svc.cluster.local:8080/* 
+ x-envoy-upstream-service-time: 6 
+ x-frame-options: same-origin 
+ x-iinfo: 7-14411267-14411269 NNNY CT(36 40 0) RT(1710564142411 41) q(0 0 0 -1) r(1 1) U11 
+ x-xss-protection: 1; mode=block 
+Responses
+Code Description Links
+200 
+List of accounts
+
+Media type
+
+Controls Accept header.
+Examples
+
+Example Value
+Schema
+[
+  {
+    "id": "50580ac7-60e4-4df2-a834-d12c1ab79afb",
+    "name": "Example account 1",
+    "active": true,
+    "service_period": {
+      "from": "2021-05-25",
+      "to": "2022-05-25"
+    },
+    "friendly_identifier": "5258283",
+    "admins": [
+      {
+        "id": "833e4906-fc45-4bd3-841e-40506c0e8ca8",
+        "email": "api_service_user_1@example.com"
+      },
+      {
+        "id": "fa8285c7-5e35-4ea8-8cc4-dc95f7dc3cd6",
+        "email": "api_service_user_2@example.com"
+      },
+      {
+        "id": "7d78b46a-c635-4bda-8b6d-13802046a963",
+        "name": "John Doe",
+        "email": "account_user_1@example.com"
+      }
+    ],
+    "sign_in_methods": [
+      {
+        "signInMethod": "standard",
+        "status": "enabled",
+        "mfaStatus": "disabled",
+        "clientAuthCertLoginEnabled": false
+      }
+    ],
+    "locale": "en_US"
+  },
+  {
+    "id": "be5ffbd2-1a50-4675-912f-2fe015812f87",
+    "name": "Example account 2",
+    "active": true,
+    "service_period": {
+      "from": "2021-05-26",
+      "to": "2022-05-26"
+    },
+    "friendly_identifier": "7092363",
+    "admins": [],
+    "sign_in_methods": [
+      {
+        "signInMethod": "standard",
+        "status": "enabled",
+        "mfaStatus": "disabled",
+        "clientAuthCertLoginEnabled": false
+      }
+    ],
+    "locale": "en_US"
+  }
+]
+
+Curl
+
+curl -X 'GET' \
+  'https://one.digicert.com/account/api/v1/api-access-token?user_id=fa5e727c-0527-44e0-9004-5fdc347b0b3f' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: 10000'
+Request URL
+https://one.digicert.com/account/api/v1/api-access-token?user_id=fa5e727c-0527-44e0-9004-5fdc347b0b3f
+Server response
+Code Details
+403
+Undocumented
+Error: Forbidden
+
+Response body
+Download
+{
+  "errors": [
+    {
+      "code": "AUTHORIZATION_ERROR",
+      "message": "No authentication data provided"
+    }
+  ]
+}
+Response headers
+ cache-control: no-cache,no-store,max-age=0,must-revalidate 
+ connection: keep-alive 
+ content-encoding: gzip 
+ content-security-policy: default-src 'self' dctrustassistant: http://localhost:*/ http://127.0.0.1:*/ https://127.0.0.1:*/ https://assets.adobedtm.com/ https://*.pendo.io/  https://www.googletagmanager.com/  https://www.google-analytics.com/ https://purecatamphetamine.github.io https://*.fullstory.com/ https://*.digicert.com/ https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.js https://*.storage.googleapis.com/ https://services.nvd.nist.gov blob: data: 'unsafe-inline' 'unsafe-eval'; 
+ content-type: application/json 
+ date: Sat,16 Mar 2024 04:44:01 GMT 
+ expires: 0 
+ pragma: no-cache 
+ referrer-policy: no-referrer 
+ strict-transport-security: max-age=15724800 
+ transfer-encoding: Identity 
+ vary: Accept-Encoding 
+ x-cdn: Imperva 
+ x-content-type-options: nosniff 
+ x-envoy-decorator-operation: account.dcone-prod.svc.cluster.local:8080/* 
+ x-envoy-upstream-service-time: 5 
+ x-frame-options: same-origin 
+ x-iinfo: 15-83048556-83048560 NNNY CT(36 38 0) RT(1710564241016 44) q(0 0 0 -1) r(1 1) U11 
+ x-xss-protection: 1; mode=block 
+Responses
+Code Description Links
+200 
+Success
+
+Media type
+
+Controls Accept header.
+Example Value
+Schema
+[
+  {
+    "id": "7b5d83e7-6e5f-4ade-ad48-111c6f3420f7",
+    "user_id": "e7ea1214-d688-48ba-aa1b-131fb2867ac5",
+    "name": "API token name",
+    "end_date": "2022-05-30T23:59:59Z",
+    "start_date": "2021-06-25T21:20:06Z",
+    "active": true,
+    "enabled": true,
+    "masked_api_key": "*************9e2a1"
+  }
+]
+
+Curl
+
+curl -X 'GET' \
+  'https://one.digicert.com/account/api/v1/locales' \
+  -H 'accept: application/json' \
+  -H 'X-API-Key: 10000'
+Request URL
+https://one.digicert.com/account/api/v1/locales
+Server response
+Code Details
+200 
+Response body
+Download
+[
+  {
+    "code": "de_DE",
+    "language": "Deutsch"
+  },
+  {
+    "code": "en_US",
+    "language": "English"
+  },
+  {
+    "code": "es_ES",
+    "language": "Español"
+  },
+  {
+    "code": "fr_FR",
+    "language": "Français"
+  },
+  {
+    "code": "it_IT",
+    "language": "Italiano"
+  },
+  {
+    "code": "ja_JP",
+    "language": "日本語"
+  },
+  {
+    "code": "ko_KR",
+    "language": "한국어"
+  },
+  {
+    "code": "nl_NL",
+    "language": "Nederlands"
+  },
+  {
+    "code": "pt_BR",
+    "language": "Português"
+  },
+  {
+    "code": "ru_RU",
+    "language": "Русский"
+  },
+  {
+    "code": "zh_CN",
+    "language": "简体中文"
+  },
+  {
+    "code": "zh_TW",
+    "language": "繁體中文"
+  }
+]
+Response headers
+ cache-control: no-cache,no-store,max-age=0,must-revalidate 
+ connection: keep-alive 
+ content-encoding: gzip 
+ content-security-policy: default-src 'self' dctrustassistant: http://localhost:*/ http://127.0.0.1:*/ https://127.0.0.1:*/ https://assets.adobedtm.com/ https://*.pendo.io/  https://www.googletagmanager.com/  https://www.google-analytics.com/ https://purecatamphetamine.github.io https://*.fullstory.com/ https://*.digicert.com/ https://fonts.googleapis.com https://fonts.gstatic.com https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.12.313/pdf.worker.js https://*.storage.googleapis.com/ https://services.nvd.nist.gov blob: data: 'unsafe-inline' 'unsafe-eval'; 
+ content-type: application/json 
+ date: Sat,16 Mar 2024 04:50:15 GMT 
+ expires: 0 
+ pragma: no-cache 
+ referrer-policy: no-referrer 
+ strict-transport-security: max-age=15724800 
+ transfer-encoding: Identity 
+ vary: Accept-Encoding 
+ x-cdn: Imperva 
+ x-content-type-options: nosniff 
+ x-envoy-decorator-operation: account.dcone-prod.svc.cluster.local:8080/* 
+ x-envoy-upstream-service-time: 7 
+ x-frame-options: same-origin 
+ x-iinfo: 18-118172517-118172518 NNNN CT(35 39 0) RT(1710564614160 42) q(0 0 0 -1) r(1 1) U2 
+ x-xss-protection: 1; mode=block 
+Responses
+Code Description Links
+200 
+Locales list
+
+Media type
+
+Controls Accept header.
+Examples
+
+Example Value
+Schema
+[
+  {
+    "code": "de_DE",
+    "language": "Deutsch"
+  },
+  {
+    "code": "en_US",
+    "language": "English"
+  },
+  {
+    "code": "es_ES",
+    "language": "Español"
+  },
+  {
+    "code": "fr_FR",
+    "language": "Français"
 
   
 
