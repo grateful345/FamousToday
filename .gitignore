@@ -1,3 +1,12 @@
+git pull origin main
+Step 2: Switch to the base branch of the pull request.
+git checkout main
+Step 3: Merge the head branch into the base branch.
+git merge grateful345-patch-13
+Step 4: Push the changes.
+git push -u origin main
+
+
 # Prerequisites
 *.d
 
