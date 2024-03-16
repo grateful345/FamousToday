@@ -10,7 +10,91 @@ graph TD;
     C-->D;
 ```
 Screenshot of a rendered Mermaid flow chart with four lavender boxes labeled A, B, C, and D. Arrows extend from A to B, from B to D, from A to C, and from C to D.
-
+DoD PKI Management
+FOR OFFICIAL USE ONLY
+Home Help FAQs Search GDS
+PLEASE SELECT ONE CA  SUBMIT SELECTION
+DOD WCF INTERMEDIATE CA 1
+Certificate Subject DN
+CN=DOD WCF INTERMEDIATE CA 1,OU=WCF PKI,OU=DOD,O=U.S. GOVERNMENT,C=US
+Certificate in Base64 encoded format
+-----BEGIN CERTIFICATE-----
+MIIEDTCCAvWgAwIBAgICAVowDQYJKoZIhvcNAQELBQAwYzELMAkGA1UEBhMCVVMxGDAWBgNVBAoT
+D1UuUy4gR292ZXJubWVudDEMMAoGA1UECxMDRG9EMRAwDgYDVQQLEwdXQ0YgUEtJMRowGAYDVQQD
+ExFEb0QgV0NGIFJvb3QgQ0EgMTAeFw0xOTAyMDUxNDIxMzRaFw0yOTAyMDIxNDIxMzRaMGsxCzAJ
+BgNVBAYTAlVTMRgwFgYDVQQKEw9VLlMuIEdvdmVybm1lbnQxDDAKBgNVBAsTA0RvRDEQMA4GA1UE
+CxMHV0NGIFBLSTEiMCAGA1UEAxMZRG9EIFdDRiBJbnRlcm1lZGlhdGUgQ0EgMTCCASIwDQYJKoZI
+hvcNAQEBBQADggEPADCCAQoCggEBAOkQ6FA2+mIZXkdVHTCmFvJ4MyNJwPHTnZrrwJRmHDrJ9BOP
+pdysN+DSD993tKqXYn1GNxxH+nmUZHP3Vea+mA8fLi3vml801dZn9QrV31W6x6dRAJkWDao1kk/J
+tjhSMkVc4UjdLO1GJW2PeCagJqzJXJrFdc335Czk3o33TI0nJwF5YdghKNsPYZ8ZNprDjgfR6wxL
+/vYh+KG3VHk9aX8lL5N2kusxVoGJ2qU5mgMCmYm87GbQJXGZkt+aJi58duFARQQuwnK6LoZy6PQJ
+VLrcZrQvsb+nRuYfZoc6gZ1o2TsjbZfT4ikI7WnlnAxH2SrRdg3iQrDGqDpPML/LH7MCAwEAAaOB
+wjCBvzAfBgNVHSMEGDAWgBQHk87g4dtWhs47wbn3D8p/jgrTwzAdBgNVHQ4EFgQUjbKyjyFvNqP+
+avY+nW8/J+jBWJYwDgYDVR0PAQH/BAQDAgEGMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcD
+CTASBgNVHRMBAf8ECDAGAQH/AgEBMDoGA1UdHwQzMDEwL6AtoCuGKWh0dHA6Ly9jcmwuZGlzYS5t
+aWwvY3JsL0RPRFdDRlJPT1RDQTEuY3JsMA0GCSqGSIb3DQEBCwUAA4IBAQB0rdfAgBTQgpt845e5
+JFyzb0CFCdQiVzhaxiDa6HK7iMcYK/L2I2p+BgRjjnYWgEGK6VGRXMjT4y2snZ+3sbwGUD3J0q+N
+KzOYbRb3yjB7E7tazITXHYTTS4wR7RGcVw3cpkGIo9MAGcddpixLn+Z/tl19KJ7MeWuUTQSq5d2q
+ZUWqUQxUgTp2VsUOOfYAULJ2d/wqT8jF3r+F4qJsfcOg2wCIb/z2U4j3VoW5kziCZZJksTK6GMMg
+m06pStX8i4olRvZjAm1vpI+cVtUgW3IAnV3QUmtAmEa+ZdzhvbOW2r4J+eT3gE2g5puGx0zZkEsJ
+aTtjcXNOEO3DQ9umJ5Ry
+-----END CERTIFICATE-----
+Certificate Contents
+Certificate:
+  Data:
+    Version: 3
+      Serial Number: 0x015A
+      Signature Algorithm: SHA256withRSA - 1.2.840.113549.1.1.11
+      Issuer: CN=DOD WCF ROOT CA 1,OU=WCF PKI,OU=DOD,O=U.S. GOVERNMENT,C=US
+      Validity:
+        Not Before: 2019-02-05 14:21:34 GMT
+        Not  After: 2029-02-02 14:21:34 GMT
+      Subject: CN=DOD WCF INTERMEDIATE CA 1,OU=WCF PKI,OU=DOD,O=U.S. GOVERNMENT,C=US
+      Subject Public Key Info:
+        Algorithm: RSA - 1.2.840.113549.1.1.1
+          Public Key:
+            Exponent: 65537
+            Public Key Modulus:
+00:E9:10:E8:50:36:FA:62:19:5E:47:55:1D:30:A6:16:F2:78:33:23:49:C0:F1:D3:9D:9A:EB:C0:94:66:1C:3A:C9:F4:13:8F:A5:DC:AC:37:E0:D2:0F:DF:77:B4:AA:97:62:7D:46:37:1C:47:FA:79:94:64:73:F7:55:E6:BE:98:0F:1F:2E:2D:EF:9A:5F:34:D5:D6:67:F5:0A:D5:DF:55:BA:C7:A7:51:00:99:16:0D:AA:35:92:4F:C9:B6:38:52:32:45:5C:E1:48:DD:2C:ED:46:25:6D:8F:78:26:A0:26:AC:C9:5C:9A:C5:75:CD:F7:E4:2C:E4:DE:8D:F7:4C:8D:27:27:01:79:61:D8:21:28:DB:0F:61:9F:19:36:9A:C3:8E:07:D1:EB:0C:4B:FE:F6:21:F8:A1:B7:54:79:3D:69:7F:25:2F:93:76:92:EB:31:56:81:89:DA:A5:39:9A:03:02:99:89:BC:EC:66:D0:25:71:99:92:DF:9A:26:2E:7C:76:E1:40:45:04:2E:C2:72:BA:2E:86:72:E8:F4:09:54:BA:DC:66:B4:2F:B1:BF:A7:46:E6:1F:66:87:3A:81:9D:68:D9:3B:23:6D:97:D3:E2:29:08:ED:69:E5:9C:0C:47:D9:2A:D1:76:0D:E2:42:B0:C6:A8:3A:4F:30:BF:CB:1F:B3
+      Extensions:
+        Identifier: Subject Key Identifier: - 2.5.29.14
+          Critical: no
+          Key Identifier:
+8D:B2:B2:8F:21:6F:36:A3:FE:6A:F6:3E:9D:6F:3F:27:E8:C1:58:96
+        Identifier: Key Usage:
+          keyCertSign
+          cRLSign
+        Identifier: Basic Constraints: - 2.5.29.19
+          Critical: yes
+          Is CA: yes
+          Path Length Constraints: 1
+        Identifier: Policy Constraints: - 2.5.29.36
+          Critical: unknown
+          Require Explicit Policy:
+          Inhibit Policy Mapping:
+        Identifier: Authority Key Identifier: - 2.5.29.35
+          Critical: no
+          Key Identifier:
+07:93:CE:E0:E1:DB:56:86:CE:3B:C1:B9:F7:0F:CA:7F:8E:0A:D3:C3
+        Identifier: Certificate Policies: - 2.5.29.32
+          Critical: unknown
+          Value:
+            
+        Identifier: Issuer Alternative Name: - 2.5.29.18
+          Critical: unknown
+          Issuer Names:
+        Identifier: CRLDistributionPoints: - 2.5.29.31
+          Critical: no
+          Value:
+30:31:30:2F:A0:2D:A0:2B:86:29:68:74:74:70:3A:2F:2F:63:72:6C:2E:64:69:73:61:2E:6D:69:6C:2F:63:72:6C:2F:44:4F:44:57:43:46:52:4F:4F:54:43:41:31:2E:63:72:6C
+        Signature:
+          Algorithm: SHA256withRSA - 1.2.840.113549.1.1.11
+            Signature:
+74:AD:D7:C0:80:14:D0:82:9B:7C:E3:97:B9:24:5C:B3:6F:40:85:09:D4:22:57:38:5A:C6:20:DA:E8:72:BB:88:C7:18:2B:F2:F6:23:6A:7E:06:04:63:8E:76:16:80:41:8A:E9:51:91:5C:C8:D3:E3:2D:AC:9D:9F:B7:B1:BC:06:50:3D:C9:D2:AF:8D:2B:33:98:6D:16:F7:CA:30:7B:13:BB:5A:CC:84:D7:1D:84:D3:4B:8C:11:ED:11:9C:57:0D:DC:A6:41:88:A3:D3:00:19:C7:5D:A6:2C:4B:9F:E6:7F:B6:5D:7D:28:9E:CC:79:6B:94:4D:04:AA:E5:DD:AA:65:45:AA:51:0C:54:81:3A:76:56:C5:0E:39:F6:00:50:B2:76:77:FC:2A:4F:C8:C5:DE:BF:85:E2:A2:6C:7D:C3:A0:DB:00:88:6F:FC:F6:53:88:F7:56:85:B9:93:38:82:65:92:64:B1:32:BA:18:C3:20:9B:4E:A9:4A:D5:FC:8B:8A:25:46:F6:63:02:6D:6F:A4:8F:9C:56:D5:20:5B:72:00:9D:5D:D0:52:6B:40:98:46:BE:65:DC:E1:BD:B3:96:DA:BE:09:F9:E4:F7:80:4D:A0:E6:9B:86:C7:4C:D9:90:4B:09:69:3B:63:71:73:4E:10:ED:C3:43:DB:A6:27:94:72
+Certificate Fingerprints
+MD2: 9B07CCEF0CB59B7A15815068559A241D
+MD5: 95D936EBDC34EA7880F6A9055EA55F6D
+SHA-1: 286DE89B841483EC27B8F8498AC04885A3D73087
 Note: You may observe errors if you run a third-party Mermaid plugin when using Mermaid syntax on GitHub.
 Creating GeoJSON and TopoJSON maps
 
