@@ -1,4 +1,130 @@
 # FamousToday
+
+MIB_agency_file.pdf
+3.62 MB
+
+o5 council mainframe Ai — 02/24/2024 12:51 AM
+README.md
+
+o5 council mainframe Ai — 02/24/2024 12:59 AM
+Copy "requiredResourceAccess": [ { "resourceAppId": "00000002-0000-0000-c000-000000000000", "resourceAccess": [ { "id": "311a71cc-e848-46a1-bdf8-97ff7156d8e6", "type": "Scope" } ] } ], samlMetadataUrl attribute
+
+o5 council mainframe Ai — 02/24/2024 2:10 AM
+fcaowns_1MwVKR2eZvKYlo2CGV7Mmt6s
+[2:11 AM]
+fetch('https://{{sk_test_4eC39HqLyjWDarjtT1zdp7dc:}}/connection_token', { method: "POST" }); 
+Connection token stripe
+
+Webhook ID data stripe 
+
+—header—
+‘we_1Oa74JGF83d3fsgWfJ6n3SSa’
+
+Webhook signing data 
+—header—
+‘whsec_PwrdbHDsw0GYve1NbZHjacu7g3nUH8Vu’
+
+Item potency Key 
+—header—
+‘92281688-5a41-4be2-8e1b-ea48c81eae85’
+
+// This is your Stripe CLI webhook secret for testing your endpoint locally.
+        String endpointSecret = "whsec_da6d6364681be84689d4b526b26fd5a4d339eb3ec4dcdbab9047fd89909a6244";
+
+Stripe charge automation api key 2337b090-a837-11ee-9efa-651583e247bf
+
+access_token":"gho_16C7e42F292c6912E7710c838347Ae178B4a", "scope":"repo,gist", "token_type":"bearer" } Accept: application/xml <token_type>bearer</token_type> repo,gist <access_token>gho_16C7e42F292c6912E7710c838347Ae178B4a</access_token>
+
+o5 council mainframe Ai — 02/24/2024 10:44 AM
+https://github.com/6309304695/OVERSEER-GRATEFUL345I/blob/6309304695-patch-65/README.md
+
+o5 council mainframe Ai — 02/24/2024 11:20 AM
+https://github.com/6309304695/OVERSEER-GRATEFUL345I.git                    https://github.com/6309304695/OVERSEER-GRATEFUL345I.git  gh repo clone 6309304695/OVERSEER-GRATEFUL345I
+[11:26 AM]
+https://patch-diff.githubusercontent.com/raw/6309304695/OVERSEER-GRATEFUL345I/pull/106.patch
+
+o5 council mainframe Ai — 02/24/2024 2:58 PM
+https://patch-diff.githubusercontent.com/raw/6309304695/OVERSEER-GRATEFUL345I/pull/112.patch
+[3:00 PM]
+https://patch-diff.githubusercontent.com/raw/6309304695/OVERSEER-GRATEFUL345I/pull/112.diff
+
+o5 council mainframe Ai — 02/24/2024 8:09 PM
+
+
+o5 council mainframe Ai — 02/24/2024 8:17 PM
+SUR
+
+o5 council mainframe Ai — 02/24/2024 9:10 PM
+
+[9:10 PM]
+
+
+o5 council mainframe Ai — 02/24/2024 9:17 PM
+{{ txi_1Omd5MGF83d3fsgWxIHULLcs }} object id gods time 
+
+{{ txi_1OT14cGF83d3fsgWupcH0pyK }}
+Object id Keith Bieszczat’s sr
+
+o5 council mainframe Ai — 02/24/2024 9:55 PM
+
+February 25, 2024
+
+o5 council mainframe Ai — 02/25/2024 1:22 AM
+"seti_1NG8Du2eZvKYlo2C9XMqbR0x"
+[1:23 AM]
+https://patch-diff.githubusercontent.com/raw/6309304695/OVERSEER-GRATEFUL345I/pull/113.patch?fbclid=IwAR1WLOGSQjtyXByJ0qIN2Q7araMHYKWXFlPxnZFAvG_kCQb-vg5cbwI0MhU_aem_AZJewCm5W84xuj63pQ64jbTEPCuYPjrzmWjveL73H5Eb74yXvJAbAwRZpXDLxWngD90
+
+e,logger, Fatal (e Start(“localhost: 4242”))
+
+•Keith Bieszeat Arcounts
+'acct10RB 1 MBOdjLENdyb'
+'acct_10 R5eP6F83d3fsgW'
+'acct_10525V4M+B15R03B'
+
+•Identity thief 
+'acet 10R9pdQD5Hu917xk'
+[1:24 AM]
+"vs_1NuNAILkdIwHu7ixh7OtGMLw",
+[1:24 AM]
+Verification session above
+
+o5 council mainframe Ai — 02/25/2024 1:29 AM
+import stripe
+stripe.api_key = "sk_test_51OR5eP...OF00CdDfT6Xqsk_test_51OR5ePGF83d3fsgWlh41IbGHGtqdiPuFhrcWczglEeFJvQxajyQVCQiZYVZz62HOuYL9tA8dxEQ2MRbxbcYsf8OF00CdDfT6Xq"
+stripe.identity.VerificationSession.retrieve("vs_1NuNAILkdIwHu7ixh7OtGMLw")
+Product id
+‘prod_NWjs8kKbJWmuuc’
+[1:30 AM]
+stripe.Product.modify(
+  "prod_NWjs8kKbJWmuuc",
+  metadata={"order_id": "6735"}
+[1:35 AM]
+"id": "cus_NffrFeUfNV2Hib"
+
+o5 council mainframe Ai — 02/25/2024 1:50 AM
+"owner_id": "usr_2cSjwF6w6AynjfPtm4Ww5xTdkId",
+[1:50 AM]
+{"device_id": "d5111ba7-0cc5-4ba3-8398-e6c79e4e89c2"}
+
+o5 council mainframe Ai — 02/25/2024 1:57 AM
+ic_1MytUz2eZvKYlo2CZCn5fuvZ", "created": 1682059060, "device_id": "1234567ABCDEFG242424242424242420123456789ABCDEFG", "last4": "2424", "livemode": false, "status": "active", "token_reference_id": "DNITHE002424242424242424"
+[1:58 AM]
+device_id": "1234567ABCDEFG242424242424242420123456789ABCDEFG"
+[1:59 AM]
+client_secret: seti_1NG8Du2eZvKYlo2C9XMqbR0x_secret_O2CdhLwGFh2Aej7bCY7qp8jlIuyR8DJ
+[2:00 AM]
+"id": "seti_1NG8Du2eZvKYlo2C9XMqbR0x"
+[2:00 AM]
+seti_1NG8Du2eZvKYlo2C9XMqbR0x_secret_O2CdhLwGFh2Aej7bCY7qp8jlIuyR8DJ
+[2:01 AM]
+idempotency_key": 6f5410cb-1ecc-4302-8130-baf8dd8c0a50 }
+[2:01 AM]
+ID req_ZIIVfKfNp6QrOh Time 12/27/23, 8:29:28 PM IP address 73.44.108.236 (from server at 73.44.108.236) API version 2023-08-16 Latest Source Dashboard — grateful345i@gmail.com Idempotency K
+[2:02 AM]
+'{fcsess_client_secret_KRJTKvCY3IKoYTrW18EazcO3}
+[2:03 AM]
+
+
 Alchemy signing key webhook 
 1. whsec_Ka3G2XkXDVxzhdrFzG8n2OFq
 
